@@ -1,0 +1,217 @@
+﻿RabbitMQ. Часть 3. Разбираемся с Queues и Bindings https://habr.com/ru/post/490960/
+
+Архитектура WhatsApp, которую Facebook купил за $19 миллиардов https://habr.com/ru/post/276951/
+Децентрализованная система обмена сообщениями https://habr.com/ru/post/240053/
+
+
+
+https://habr.com/ru/post/235995/
+
+https://docs.microsoft.com/ru-ru/dotnet/architecture/microservices/
+	https://github.com/dotnet-architecture/eShopOnContainers
+	https://github.com/dotnet-architecture/News
+	
+	https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health
+	
+	https://habr.com/ru/post/336000/
+	
+https://metanit.com/sharp/aspnet5/2.7.php // веб-сервер kestrel
+
+https://metanit.com/sharp/aspnet5/2.4.php // https://habr.com/ru/company/otus/blog/528692/
+	https://docs.microsoft.com/en-us/aspnet/core/fundamentals/?view=aspnetcore-6.0&tabs=windows // ASP .NET Core Fundamentals
+
+https://metanit.com/sharp/aspnet5/2.7.php // веб-сервер Kestrel
+
+Secret Manager
+
+https://habr.com/ru/post/502362/ // ETW, Трассировка событий /+/ https://metanit.com/sharp/aspnet5/2.13.php
+
+// WSFC (failover cluster manager)
+https://habr.com/ru/post/518216/
+https://habr.com/ru/post/263267/
+
+бинарные буферы это
+	https://habr.com/ru/company/ruvds/blog/348970/
+
+планировщик заданий (Task Scheduler)
+
+https://josef.codes/c-sharp-throttle-http-requests-concurrent/ // throttling http requests c#
+	https://www.aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
+	https://josef.codes/you-are-probably-still-using-httpclient-wrong-and-it-is-destabilizing-your-software/
+	https://josef.codes/httpclient-error-handling-a-test-driven-approach/
+	
+	https://stackoverflow.com/questions/20817300/how-to-throttle-requests-in-a-web-api // jelatel'no pochitat'
+
+tcpdump/whireshark // https://stackoverflow.com/questions/13699334/apache-php-invalid-content-length
+
+https://ru.stackoverflow.com/questions/226505/event-%D0%B8-delegate-%D0%B2-%D1%87%D0%B5%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B8%D0%B5
+https://habr.com/ru/company/ruvds/blog/346908/ - машина состояний
+https://docs.microsoft.com/ru-ru/nuget/hosting-packages/overview - nuget публикация + https://habr.com/ru/company/true_engineering/blog/191406/ + https://habr.com/ru/post/274283/
++ Verdaccio nuget локальный - https://habr.com/ru/post/453614/
+
+https://habr.com/ru/post/351498/ Reflection.Emit
+
+
+
+Было до:
+============================================================================================================================================================================================================
+
+
+
+concurrency design, 
+https://habr.com/ru/post/130577/ // распределённые системы
+https://habr.com/ru/post/130577/ // CAP теорема
+Методологии архитектур, ISO стандарты. Что это за слово и чем отличается от других стандартов. Сколько основных мировых стандартов типа ISO
+
+// Работа процессорв, дескрипторы, виртуальная память, файл подкчаки
+// Многопоточность: 
+	Сколько выдаётся потоков приложению в начале его работы. Дофига если открыть во время отладки
+	Thread.SetMinimumThread(3)
+	Сколько потоков можно содать? Столько же сколько ядер? Поддержка мультипрцоессорности в играх это оно? виртуальный ядра/процессоры
+	Как забить какое то ядро по максимуму? Бесконечный цикл?
+	Что такое конкрутентные потоки, массивы, какие есть способы взаимодействия
+	Задача: сделать 3+ потока один из них будет добавлять элементы в коллекцию, второй удалять по предикату, третий будет читать из потока
+	https://habr.com/ru/company/jugru/blog/468611/ // TimerQueue
+	PLinq, ThreadPool
+	https://ru.stackoverflow.com/questions/872005/%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%BA%D0%BE%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B4%D0%BD%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%B2
+	https://techcommunity.microsoft.com/t5/windows-blog-archive/pushing-the-limits-of-windows-handles/ba-p/723848
+	https://devblogs.microsoft.com/oldnewthing/20060901-11/?p=29883
+	https://devblogs.microsoft.com/oldnewthing/20070718-00/?p=25963
+// SqlProfiler
+// Счётчики Windows // PerformanceЧёТоТам..
+// Счётчики Sql
+
+// Паттерны {
+	Singleton
+	Command
+	Flyweight
+	Prototype
+	Observer
+	State
+	Strategy
+	Decorator
+}, EventBroker, IoC (инверсия управления)
+DDD (Domain Driven Design книга - Предметно-ориентированное проектирование) // https://habr.com/ru/company/dododev/blog/489352/ // Знание принципов TDD, DDD
+
+WebApi2 // https://metanit.com/sharp/aspnet_webapi/1.1.php
+WebApi
+EntityFramework // EF/EF Core // Опыт работы с ORM (EntityFramework / Dapper)
+Kubernetes // Знание Kubernetes, средств контейнеризации и управления контейнеризированными приложениями
+	etcd 
+Docker 
+	Docker Compose
+https://habr.com/ru/post/249183/ // Микросервисы
+https://habr.com/ru/post/280732/ // Hangfire — планировщик задач для .NET
+https://www.jaegertracing.io/  // Jaeger
+ElasticSearch, Kibana // Elastic-стек (elasticsearch, kibana, APM)
+Использование SSL, ЭЦП, шифрование в приложениях
+Fork -> git remote add upstream. Pull request
+Методологии разработки // https://habr.com/ru/company/edison/blog/269789/
+	"D:\РС\Полезные файлы\Инструкции\Модели и методологии разработки ПО GeekBrains - образовательный портал.html"
+	https://gb.ru/posts/methodologies
+Test-driven development
+Владение протоколами стека TCP/IP // Посмотреть что не знаю, придумат ьили попросить тяжёлую задачу на выполнение, на нюансы
+MongoDB
+Опыт работы с колоночными СУБД (ClickHouse)
+Github Actions // https://habr.com/ru/company/microsoft/blog/481502/ Введение в GitHub Actions
+WCF
+Oracle
+https://habr.com/ru/company/macloud/blog/553826/ // CORS
+CQRS // https://habr.com/ru/company/developersoft/blog/350060/
+
+SCADA проекты
+
+Яндекс.Облако Yandex.Cloud // "Инфраструктура в Яндекс.Облаке"
+Понимание общий принципов ООП, DI, SOLID, YAGNI
+
+Закрепи инвариантность, ковариантность и контрвариантность
+Assemly файл
+[assembly: OwinStartup(typeof(SignalRMvc.Startup))]
+Marshal (.net dll)
+Interlocked // Interlocked.Exchange
+DllImport // + CallingConvention // [DllImport("LogEvent", CallingConvention = CallingConvention.Cdecl)] public static extern int Initialize();
+https://docs.microsoft.com/ru-ru/dotnet/api/system.marshalbyrefobject?view=net-6.0 // MarshalByRefObject
+
+https://gitlab.oikdev.local/monitel/ck-11/platform/infrastructure/-/issues/91 // Extensions
+http://cl-tfs2018.monitel.local:8080/tfs/CK-11/Development/_git/Platform.Core?path=%2Fdocs%2Fservices%2Flifetimes.md&version=GBextensions3-final&_a=preview // Lifitemes
+http://cl-tfs2018.monitel.local:8080/tfs/CK-11/Development/_git/Platform.Core?path=%2Fdocs%2Fextensions%2FMal.md&version=GBextensions3-final&_a=preview // Mal
+http://cl-tfs2018.monitel.local:8080/tfs/CK-11/Development/_git/Platform.RTDB?path=%2Fdocs%2Fmodel-image-integration.md&version=GBextensions3-final&_a=preview // model-image-integration
+http://cl-tfs2018.monitel.local:8080/tfs/CK-11/Development/_git/Platform.RTDB?path=%2Fdocs%2Fconnections.md&version=GBextensions3-final&_a=preview // расширения БДРВ
+
+https://habr.com/ru/post/242209/ // AppDomain плагины
+https://www.google.com/search?q=AppDomain.CreateDomain&rlz=1C1GCEU_ruRU915RU915&sourceid=chrome&ie=UTF-8 // AppDomain.CreateDomain
+
+// Entity–attribute–value model (EAV)
+https://habr.com/ru/company/avanpost/blog/484186/ // LDAP-аутентификация
+https://habr.com/ru/company/custis/blog/258861/ // XACML
+https://habr.com/ru/company/avanpost/blog/480576/ // Авторизация
+https://habr.com/ru/company/nixys/blog/568878/ // FIM
+https://habr.com/ru/company/nixys/blog/563244/ // SSO
+MFA, Adaptive Authentication, Device Trust, IP Address Whitelisting
+// https://gitlab.oikdev.local/monitel/ck-11/platform/infrastructure/-/issues/89
+	// apache negotiate // либо NTLM если это windows, либо negotiate если Linux
+	// В качестве альтернативы я предлагаю использовать nginx (надо только понять он negotiate умеет на windows) или использовать напрямую kestrel, 
+	// как нас уверяет Microsoft он вполне пригоден для внутреннего использования
+// Kerberos, аутентификация
+// Bearer Token, OAuth 2 // Как можно в ABAC внедрить проверку токена?
+
+// Swagger C#
+ASP.NET MVC 4+
+https://metanit.com/sharp/mvc5/16.2.php  // SignalR
+ADO.NET
+Аутентификация череч Google/внешние сервисы
+
+Знание SQL и устройства СУБД на уровне, необходимом для оптимизации выполнения запросов
+SQL тригеры, события, переменные + Храни́мая процеду́ра (англ. Stored procedure) 
+NHibernate // https://habr.com/ru/post/267505/
+Работа с системами контроля версий, приоритетно знание SVN // https://habr.com/ru/post/29440/
+
+Nuget пакеты
+
+CLR, IL // CIL, MSIL
+домен приложения
+
+Pacemaker\Corosync // PostgreSQL кластеризован при помощи стэка Pacemaker\Corosync, в кластере 2 сервера: мастер и синхронная реплика. 
+
+Знание процесса обработки запросов в IIS
+akka // https://github.com/akka/akka-http
+Jepsen
+Алгоритмы кворума PAXOS & RAFT // Это алгоритм нам всем очень помогает делать нормальные распределённые системы.
+CAP теорема. глянуть какие бд чем жертвуют
+
+Перспективы:
+SRE
+
+Publisher-Subscriber, AMQP
+	MSMQ // https://professorweb.ru/my/csharp/web/level9/9_1.php
+	Kafka // https://habr.com/ru/company/piter/blog/352978/
+	RabbitMq
+		https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html
+		https://www.rabbitmq.com/tutorials/tutorial-two-dotnet.html
+	Azure Service Bus
+event-based communication
+Работа
+	сервисов
+	веб-сервисов
+	
+// Amazon Web Services
+Навыки по оптимизации кода
+Работа с высоконагруженными системами
+Знание (можно теоретические) ORM
+
+Умение писать unit-тесты, а также понимание, зачем они нужны
+
+JetBrains Rider
+Jira, Confluence, Bitbucket (git-flow, code review)
+
+https://habr.com/ru/post/275995/ // Лицензирование ПО, подписывание
+// Apache license, MIT License, отличия, другие лицензии на гите по распространению. Что если нет лицензии? (copyright) // двойная лицензия
+	// Вы можете использовать DotLiquid либо по лицензии Apache версии 2.0 , либо по публичной лицензии Microsoft (Ms-PL) 
+Подписание = строгое именование?
+	
+// Рефакторинг	
+	https://refactoring.guru/ru/extract-class
+	Гурин посоветовал полистать Фаулера
+	https://fktpm.ru/file/61-fauler-refactoring-refaktoring-ulucsenie-sushhestvuyushhego-koda.pdf
+	
+GraphQL
