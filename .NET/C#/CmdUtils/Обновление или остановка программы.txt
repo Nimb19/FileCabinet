@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=V9hKsrE0wVM&t=32s&ab_channel=XpucT
+
+curver = Assembly.GetExecutingAssembly().GetName().Version(// 2);
+exename = AppDomain.CurrentDomain.FriendlyName;
+exepath = Assembly.GetEntryAssembly().Location;
+
+Cmd($"taskkill /f /im \"{exename}\" && timeout /t && del \"{exepath}\" && ren new.exe \"{exename}\"  && \"{exepath}\"");
+
+
+public void Cmd(string line)
+{
+	Process.Start(new ProcessStartinfo
+	{
+		FileName = "cmd",
+		Arguments = $"/c {line}",
+		WindowStyle = ProcessWindowStyle.Hidden,
+	});
+}
+
+
+
+
+
+
+
+taskkill /f /im "{exename}" && timeout /t && del "{exepath}" && ren new.exe "{exename}"  && "{exepath}";
