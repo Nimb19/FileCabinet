@@ -1,0 +1,15 @@
+.NET Web host builder
+https://docs.microsoft.com/ru-ru/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-6.0
+
+Используется для построения веб-сервисов.
+Является надстройкой к обычному Host builder'у, которая реализует доп. сервисы, доп. расширения, доп. возможности для разработки логики веб-сервиса.
+
+Пример:
+
+await Host.CreateDefaultBuilder(args)
+	.ConfigureWebHostDefault((webBuilder) => 
+	{
+		webBuilder.UseStartup<Startup>();
+	})
+	.Build()
+	.RunAsync();

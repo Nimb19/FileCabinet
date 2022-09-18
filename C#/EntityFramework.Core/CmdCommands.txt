@@ -1,0 +1,12 @@
+Источник данных:
+https://learn.microsoft.com/en-us/training/modules/persist-data-ef-core
+
+
+# ef migrations add 'migrationName' - добалвение миграции к БД (в том числе может использоваться для инициализации котекста и моделей)
+dotnet ef migrations add zabilDobavitbRanee
+
+# ef database update - применить миграции. Отправить изменения в них в БД
+dotnet ef database update
+
+# scaffold - создать модели и контекст на основе БД (db first)
+dotnet ef dbcontext scaffold "Data Source=.\Promotions\Promotions.db" Microsoft.EntityFrameworkCore.Sqlite --context-dir .\Data --output-dir .\Models
