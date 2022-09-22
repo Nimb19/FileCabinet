@@ -1,4 +1,7 @@
-﻿RabbitMQ. Часть 3. Разбираемся с Queues и Bindings https://habr.com/ru/post/490960/
+﻿https://medium.com/@michaszala/1-authentication-guide-net-6-0-simple-login-and-register-user-api-5c3c275311a6
+
+
+RabbitMQ. Часть 3. Разбираемся с Queues и Bindings https://habr.com/ru/post/490960/
 
 Архитектура WhatsApp, которую Facebook купил за $19 миллиардов https://habr.com/ru/post/276951/
 Децентрализованная система обмена сообщениями https://habr.com/ru/post/240053/
