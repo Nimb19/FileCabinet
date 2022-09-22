@@ -1,0 +1,54 @@
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.interlocked?view=net-6.0
+
+Interlocked (рус.: блокировка) - статический класс создан дл€ выполнени€ атомарных операций к переменным, которые доступны нескольким потокам.
+«ащищает переменную и от планировщика, и от того, что потоки которые будут стучатьс€ к переменной, будут выполн€тьс€ на разных процессорах.
+Interlocked не вызывает исключений если правильно с ним работать.
+* «ав€зан только под числа: double, int, uint32, uint64, long
+» Exchange ещЄ дл€ Object и дл€ его потомков (с помощью generic <T>)
+
+ћетоды:
+	Increment, Decrement - потокобезопасное приращение или убавление 1
+	Add - добавление
+	Or - выполн€ет побитовую операцию »Ћ»
+	And - выполн€ет побитовую операцию »
+	* struct CompareExchange(ref struct location, struct value, struct comparand) - если первое и третье значени€ равны, то замен€ет первое на второе
+	* struct Exchange(ref struct, struct) - обмен значени€ми, возвращает исходное значение первой переменной. 
+
+¬ основном используетс€ метод Exchange(ref int, int)
+
+ѕримеры:
+if (0 == Interlocked.Exchange(ref _usingResource, 1))
+{
+	Console.WriteLine("Acquired the lock");
+
+	Interlocked.Exchange(ref usingResource, 0);	
+}
+»ли
+if (Interlocked.CompareExchange(ref _usingResource, 1, 0))
+{
+	Console.WriteLine("Acquired the lock");
+	
+	Interlocked.Exchange(ref usingResource, 0);	
+}
+
+’ороший пример с MSDN дл€ создани€ потокобезопасного добавлени€ в общую переменную значени€:
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.interlocked.compareexchange?view=net-6.0#system-threading-interlocked-compareexchange(system-int32@-system-int32-system-int32)
+
+public class ThreadSafeSum 
+{
+    private int totalValue = 0;
+    public int Total => totalValue;
+
+    public int AddToTotal(int addend) 
+    {
+        int initialValue, computedValue;
+        do 
+		{
+            initialValue = totalValue;
+            computedValue = initialValue + addend;
+        } 
+		while (initialValue != Interlocked.CompareExchange(ref totalValue, computedValue, initialValue));
+        
+		return computedValue;
+    }
+}
