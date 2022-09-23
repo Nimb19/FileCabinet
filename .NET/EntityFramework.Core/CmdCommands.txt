@@ -1,6 +1,8 @@
 Источник данных:
 https://learn.microsoft.com/en-us/training/modules/persist-data-ef-core
 
+Официальная дока по командам:
+https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
 
 # ef migrations add 'migrationName' - добалвение миграции к БД (в том числе может использоваться для инициализации котекста и моделей)
 dotnet ef migrations add zabilDobavitbRanee
