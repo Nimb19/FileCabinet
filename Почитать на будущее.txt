@@ -1,4 +1,6 @@
-﻿https://medium.com/@michaszala/1-authentication-guide-net-6-0-simple-login-and-register-user-api-5c3c275311a6
+﻿https://habr.com/ru/post/283096/ Разговор о MVC и архитектуре веб-приложений
+
+https://medium.com/@michaszala/1-authentication-guide-net-6-0-simple-login-and-register-user-api-5c3c275311a6
 
 
 RabbitMQ. Часть 3. Разбираемся с Queues и Bindings https://habr.com/ru/post/490960/
