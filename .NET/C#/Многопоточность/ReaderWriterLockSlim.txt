@@ -14,3 +14,8 @@ Exceptions:
 Может вызвать LockRecursionException (https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.lockrecursionexception?view=net-6.0) 
 	- выбрасывается, если рекурсивное (повторное) использование какого то из lock'ов не было предусмотрено политикой.
 	Политика по умолчанию запрещает брать lock повторно (то есть рекурсивно), но, это можно разрешить.
+
+	Например: взятие 2 раза подряд lock'а через EnterReadLock() 
+		(LockRecursionException: Recursive read lock acquisitions not allowed in this mode.)
+	Или: взятие EnterReadLock(), затем EnterWriteLock() 
+		(LockRecursionException: Write lock may not be acquired with read lock held. This pattern is prone to deadlocks. Consider using the upgrade lock.)
