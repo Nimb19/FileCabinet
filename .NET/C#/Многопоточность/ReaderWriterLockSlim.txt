@@ -10,12 +10,35 @@ ReaderWriterLockSlim
 Так же добавлено:
 a) EnterUpgradeableReadLock() - проапргейдженный лок на чтение, который позволяет позже получить лок на запись, после прочтения значения (+ try версия)
 
+
+Описание:
+Блокировка чтения/записи - это специализированная блокировка которая позволяет одному писателю или нескольким считывателям обращаться к ресурсу.
+Не нужно её использовать вместо конструкции lock(){}, если для этого нет нужды.
+
+
 Exceptions:
 Может вызвать LockRecursionException (https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.lockrecursionexception?view=net-6.0) 
 	- выбрасывается, если рекурсивное (повторное) использование какого то из lock'ов не было предусмотрено политикой.
 	Политика по умолчанию запрещает брать lock повторно (то есть рекурсивно), но, это можно разрешить.
 
-	Например: взятие 2 раза подряд lock'а через EnterReadLock() 
+	Например: взятие 2 раза подряд lock'а через EnterReadLock() В ОДНОМ потоке конечно
 		(LockRecursionException: Recursive read lock acquisitions not allowed in this mode.)
-	Или: взятие EnterReadLock(), затем EnterWriteLock() 
+	Или: взятие EnterReadLock(), затем EnterWriteLock() В ОДНОМ потоке конечно
 		(LockRecursionException: Write lock may not be acquired with read lock held. This pattern is prone to deadlocks. Consider using the upgrade lock.)
+
+
+ПРИМЕЧАНИЕ:
+Используй блокировку под try/finally что бы избежать ошибок, из-за которых lock не отпустится:
+
+```
+writeLock.EnterWriteLock();
+try
+{
+    // DoSomething()
+}
+finally
+{
+    writeLock.ExitWriteLock();
+}
+```
+!!!!
