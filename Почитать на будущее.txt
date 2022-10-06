@@ -1,4 +1,11 @@
-﻿https://habr.com/ru/post/283096/ Разговор о MVC и архитектуре веб-приложений
+﻿Tinkoff Invest Robot Contest https://github.com/Tinkoff/invest-robot-contest/blob/main/result.md
++ https://habr.com/ru/post/672274/
+Репо торгового робота на go https://github.com/elkopass/BITA/blob/main/internal/metrics/metrics.go
+ + https://github.com/pskucherov/OpexBot
+Как работают браузеры https://web.dev/howbrowserswork/
+
+https://habr.com/ru/company/vk/blog/342526/
+https://habr.com/ru/post/283096/ Разговор о MVC и архитектуре веб-приложений
 
 https://medium.com/@michaszala/1-authentication-guide-net-6-0-simple-login-and-register-user-api-5c3c275311a6
 
