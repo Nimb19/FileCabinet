@@ -1,4 +1,20 @@
-﻿Tinkoff Invest Robot Contest https://github.com/Tinkoff/invest-robot-contest/blob/main/result.md
+﻿В вакансиях:{
+	аналитические способности
+	практические знания OOD, TDD, SOLID, CQRS и других шаблонов проектирования
+}
+
+Вакансия https://career.habr.com/vacancies/1000107155:
+{
+	Принципы и паттерны проектирования
+	ESB/HTTP
+	Agile
+	VCS https://habr.com/ru/post/552872/
+	Oracle
+	TPL = https://metanit.com/sharp/tutorial/12.1.php + https://learn.microsoft.com/ru-ru/dotnet/standard/parallel-programming/task-parallel-library-tpl
+	BCL = Base Class Library .NET
+}
+
+Tinkoff Invest Robot Contest https://github.com/Tinkoff/invest-robot-contest/blob/main/result.md
 + https://habr.com/ru/post/672274/
 Репо торгового робота на go https://github.com/elkopass/BITA/blob/main/internal/metrics/metrics.go
  + https://github.com/pskucherov/OpexBot
