@@ -1,4 +1,6 @@
-﻿В вакансиях:{
+﻿NAT Network Address Translation https://habr.com/ru/post/583172/
+
+В вакансиях:{
 	аналитические способности
 	практические знания OOD, TDD, SOLID, CQRS и других шаблонов проектирования
 }
