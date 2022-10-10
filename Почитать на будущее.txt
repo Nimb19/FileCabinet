@@ -1,4 +1,5 @@
-﻿NAT Network Address Translation https://habr.com/ru/post/583172/
+﻿WinSW
+NAT Network Address Translation https://habr.com/ru/post/583172/
 
 В вакансиях:{
 	аналитические способности

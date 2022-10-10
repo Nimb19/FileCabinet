@@ -1,0 +1,12 @@
+System.Threading.Barrier
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.barrier?redirectedfrom=MSDN&view=net-6.0
+
+Создан что бы позволить нескольким потокам алгоритма работать взаимосвязано, используя несколько фаз 
+(для объединения указанного числа потоков в каких то точках).
+Инициализируется с указанием ожидаемого кол-ва сигналов и обработчиком получения сигнала.
+
+Что бы использовать на практике:
+Barrier barrier = new Barrier(3, (b) => cw(b));
+var thread1 = new Task(() => barrier.SignalAndWait());
+var thread2 = new Task(() => barrier.SignalAndWait());
+var thread3 = new Task(() => barrier.SignalAndWait());
