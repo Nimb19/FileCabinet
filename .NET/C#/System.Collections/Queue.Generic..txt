@@ -1,0 +1,18 @@
+System.Collection.Generic.Queue
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1?redirectedfrom=MSDN&view=net-6.0
+
+НЕ threadsafe! Для многопоточных сценариев нужно использовать: ConcurrentQueue<T> и ConcurrentStack<T>!
+
+Представляет FIFO (first in, first out) коллекцию указанных в <T> объектов.
+Участвует в "Производитель-потребитель" сценариях.
+
+! Примечание: Для LIFO используется Stack<T>
+
+Функциональность:
+1. Enqueue<T>(T) - добавляет элемент в конец очереди. Можно добавить NULL
+
+2, 3: Возвращает InvalidOperationException, если очередь была пустая	
+{
+	2. T Dequeue<T>() - удаляет самый старый элемент и возвращает его. 
+	3. T Peek<T>() - возвращает самый старый элемент, но не удаляет его из очереди.
+}
