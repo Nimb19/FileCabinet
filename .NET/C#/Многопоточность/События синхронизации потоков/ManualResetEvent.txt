@@ -1,3 +1,4 @@
-System.Threading.ManualResetEvent
+System.Threading.ManualResetEvent : EventWaitHandle (: WaitHandle)
 https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.manualresetevent?view=net-6.0
 
+Может использоваться межпроцессорно.

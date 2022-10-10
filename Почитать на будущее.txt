@@ -1,7 +1,13 @@
-﻿WinSW
+﻿SpinLock и SpinWait
+
+Work-Stealing in .NET 4.0 https://learn.microsoft.com/ru-ru/archive/blogs/jennifer/work-stealing-in-net-4-0
+	https://stackoverflow.com/questions/52756327/what-is-threadpool-queueuserworkitem-preferlocal-for
+Contract https://learn.microsoft.com/ru-ru/dotnet/api/system.diagnostics.contracts.contract?view=net-6.0
+Producer–consumer problem https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem
+WinSW
 NAT Network Address Translation https://habr.com/ru/post/583172/
 
-В вакансиях:{
+В вакансиях: {
 	аналитические способности
 	практические знания OOD, TDD, SOLID, CQRS и других шаблонов проектирования
 }

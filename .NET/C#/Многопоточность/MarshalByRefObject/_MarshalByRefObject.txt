@@ -1,0 +1,13 @@
+abstract System.Runtime.MarshalByRefObject
+https://learn.microsoft.com/ru-ru/dotnet/api/system.marshalbyrefobject?view=net-6.0
+
+Разрешает доступ к производному объекту приложениям, поддерживающим удалённое взаимодействие, за границей текущего домена приложения.
+MarshalByRefObject is the base class for objects that communicate across application domain boundaries by exchanging messages using a proxy.
+Objects that do not inherit from MarshalByRefObject are implicitly marshal by value
+
+Когда удалённое приложение ссылается на Marshal by value object, копия объекта передаётся через границу домена приложения 
+	с помощью какого-то proxy ПО судя по описанию.
+
+Для использования внутри локального домена приложения - никаких преград судя по статье нет, объект остаётся обычным объектом с прямым доступом по ссылке.
+
+! Производным типом не следует ни переопределять ни использовать методы этого класса. Среда выполнения всё сделает за вас.

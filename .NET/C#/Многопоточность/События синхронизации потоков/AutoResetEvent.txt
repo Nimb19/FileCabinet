@@ -1,3 +1,5 @@
-System.Threading.AutoResetEvent
+System.Threading.AutoResetEvent : EventWaitHandle (: WaitHandle)
 
 public AutoResetEvent(bool initialState)
+
+Может использоваться межпроцессорно.

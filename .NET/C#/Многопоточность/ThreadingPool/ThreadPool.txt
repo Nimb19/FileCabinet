@@ -1,0 +1,20 @@
+static System.Threading.ThreadPool
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.threadpool?view=net-6.0
+
+Предоставляет пул потоков, который можно использовать для выполнения каких-либо задач. 
+Например, отправки рабочих элементов, обработка асинхронного ввода-вывода, ожидания от имени других потоков и обработка таймеров.
+
+
+Представляет методы:
+1) QueueUserWorkItem - помещает в очередь на выполнение. Выполнится, когда будет доступен поток из пула потоков.
+   * public delegate void WaitCallback(object? state); // state - объект, содержащий какую-то информацию, используемую методом обратного вызова
+   а) bool QueueUserWorkItem(WaitCollback) - выполнит в первом попавшемся потоке делегат. 
+										object? state придёт null, так как нет аргумента, который передавал бы этот объект.
+										Вернёт true (делегат успешно помещён в очередь) или выдаст исключение.
+   б) bool QueueUserWorkItem(WaitCollback, object? state) - то же что сверху, только с ссылкой на объект.
+   в) bool QueueUserWorkItem<T>(Action<T> callBack, T state) - то же что сверху, но типизировано.
+   г) Перегрузки с флагом preferLocal - //TODO: https://stackoverflow.com/questions/52756327/what-is-threadpool-queueuserworkitem-preferlocal-for
+      По сути, просто даёт небольшое преимущество в скорости, если звёзды сходятся для какой то кражи потока из локального пула, вроде, 
+	  и не забивает глобальный пул задачами
+
+   !! Читабельней использовать Task.Start(() => delegate)

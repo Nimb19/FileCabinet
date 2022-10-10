@@ -1,0 +1,8 @@
+System.Threading.EventWaitHandle : System.Threading.WaitHandle
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.eventwaithandle?view=net-6.0
+
+Не абстрактный. Может использоваться межпроцессорно.
+Реализует обобщённые методы для реализации событий синхронизации: ManualResetEvent и AutoResetEvent.
+По сути они являются оболочкой, судя по статье MSDN, что бы код лучше читался.
+
+При создании указывается мод: EventResetMode (AutoReset = 0, ManualReset = 1)
