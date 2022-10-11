@@ -1,4 +1,4 @@
-abstract System.Runtime.MarshalByRefObject
+abstract System.MarshalByRefObject
 https://learn.microsoft.com/ru-ru/dotnet/api/system.marshalbyrefobject?view=net-6.0
 
 Разрешает доступ к производному объекту приложениям, поддерживающим удалённое взаимодействие, за границей текущего домена приложения.
