@@ -1,14 +1,14 @@
 На прошлой работе много занимался с/много работал дома с: 
-C#, .NET Core, JetBrains ReSharper, MsTest, NBomber, GRPC, Linq, многопоточное программирование, Nuget, Swagger, // SignalR, надо аутентификацию и шифрование с библиотекой Cryptography
+C#, .NET Core, EntityFramework, JetBrains ReSharper, MsTest, NBomber, GRPC, LINQ, 
+	многопоточность (TPL, PLINQ, всё подряд изучал в System.Threading (события синхронизации, volatile, memorybarrier, ...), Collections.Concurrent), 
+	// SignalR, надо аутентификацию и шифрование с библиотекой Cryptography
+ASP.NET, WPF, CLI
+Долго, хорошо знаком с СУБД MSSQL, PGSQL, чуть с InfluxDB // Чек сложные запросы: Having
+RabbitMQ, Docker, Azure Pipelines, Virtual Machine Manager (hyper-V)
 Grafana, Kibana, Prometheus, Telegraph, ClickHouse // убери то что не выучишь
-ASP.NET, WPF, WinForm
-Apache, Nginx, 
-TFVC, GIT, 
-GitLab, TFS Azure, Bitrix24
-RabbitMQ, Docker, Azure Pipelines, Virtual Machine Manager
+Тестировал Apache, Nginx 
+Работал в TFVC, GIT + GitLab, TFS Azure, Bitrix24
 Основная ОС Windows, знаком Astra Linux
-Хорошо знаком с СУБД: // Чек сложные запросы: Having
-Microsoft SQL Server, PostgreSQL, InfluxDB
 
 Неплохо знаю: Python, Powershell
 
@@ -36,5 +36,5 @@ Microsoft SQL Server, PostgreSQL, InfluxDB
 		- провёл большое количество расследований по различным ошибкам сервисов, неправильно настроенных СУБД, ОС, утилит, конфигов
 
 Быстро обучаюсь. Не люблю писать Front.
-Хотел бы устроится разработчиком BackEnd сервисов => направлен в сторону стать архитектором ПО.
-Для себя много изучал с криптовалютами уже несколько лет, технически в них неплохо подкован.
+Хотел бы устроится разработчиком BackEnd сервисов => хотел бы стать архитектором ПО в будущем.
+Для себя изучал работу криптовалют, блокчейны, уже несколько лет, технически неплохо подкован.
