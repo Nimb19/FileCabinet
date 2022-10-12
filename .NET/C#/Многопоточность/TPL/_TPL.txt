@@ -30,7 +30,6 @@ https://learn.microsoft.com/ru-ru/dotnet/standard/parallel-programming/task-para
 
 ! Возможные проблемы при использовании TPL
   https://learn.microsoft.com/ru-ru/dotnet/standard/parallel-programming/potential-pitfalls-in-data-and-task-parallelism
-  : 
   . Потенциальные ошибки, связанные с параллелизмом данных и задач
   . Не считайте, что параллельные процессы всегда быстрее
   . Избегайте размещения в общей памяти
