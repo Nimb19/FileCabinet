@@ -1,6 +1,8 @@
 static class System.Threading.Volatile
 https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.volatile?view=net-6.0
 
+Вроде круче чем ключ. слово volatile, но нет, скорее всего при ключ. слове volatile
+
 https://ru.stackoverflow.com/questions/535410/%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-volatile-read-write
 
 Предыстория - Компилятор имеет полное право передвигать инструкции так, что бы в одном конкретном потоке - логика не нарушалась. 

@@ -1,0 +1,7 @@
+Thread.Volatile
+https://stackoverflow.com/questions/15039188/volatile-vs-volatileread-write
+
+Вы никогда не должны использовать Thread.VolatileRead/Write(). 
+Это была ошибка проектирования в .NET 1.1, он использует полный барьер памяти. 
+Это было исправлено в .NET 2.0, но они больше не могли исправлять эти методы 
+и должны были добавить новый способ сделать это, предоставляемый классом System.Threading.Volatile
