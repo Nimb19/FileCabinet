@@ -1,0 +1,50 @@
+abstract System.Threading.SynchronizationContext
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.synchronizationcontext?view=net-6.0
+https://devblogs.microsoft.com/dotnet/configureawait-faq/
+
+Фактически у каждого UI фреймворка (WPF, WinForms) своя реализация, но логика такая:
+- Примечание: UI потоки принимают делегаты в очередь, из которой берут делегаты и синхронно выполняют их. 
+  К примеру нажатие клавиш или то что мы стукнули мышкой куда то, провели ей где то.
+1) Для того что бы закидывать в UI поток изменение его объекта (приходится из-за STA, COM) используется SynchronizationContext,
+   который пробрасывает в UI поток делегат на исполнение (чаще всего с изменением какого-то объекта/объектов)
+2) Других и не знаю, только для UI
+
+Неявная проблема:
+   Когда мы хотим использовать в UI синхронном потоке асинхронный код, ожидая его с помощью Wait() и Result, 
+неявно передаётся в тред пул поток (который будет выполнять делегат) SynchronizationContext исходного потока.
+В STA UI фреймворках, если начать ожидать какой-то асинхронный таск - этот поток из тред пула 
+начнёт стрелять в СинкКонтекст UI, что тот должен переключится или разблокироваться - 
+а тот имеет реализацию, которая не позволяет пока он залочен принять разлок команду.
+
+Что бы этого избежать пример:
+```
+TaskScheduler _sync;
+ctor _sync = TaskScheduler.FromCurrentSynchronizationContext();
+
+void StartDomain(object o)
+{
+	var d = (Domain)o;
+	AddToProtocol($"Starting domain {d.Name}");
+    Task.Run(() => {
+        var reply = _control.StartDomainAsync(d).Result;
+        RunSyncronized(() =>
+        {
+            if (reply.IsOk)
+                AddToProtocol($"Domain {d.Name} started");
+            else
+                AddToProtocol($"Domain {d.Name} not started: {reply.ErrMsg}");
+        });
+    });
+}
+
+private void RunSyncronized(Action action)
+{
+    Task.Factory.StartNew(() =>
+    {
+        action.Invoke();
+    }, System.Threading.CancellationToken.None, TaskCreationOptions.None, _sync);
+}
+```
+
+Тут от UI потока WPF создаётся Task, что бы подменить SyncContext у дочернего потока, который будет синхронно ожидать завершения.
+Реализация SyncContext внутри Task уже позволяет разлочивать ожидающий поток
