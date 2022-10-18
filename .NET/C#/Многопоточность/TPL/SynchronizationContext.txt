@@ -7,7 +7,9 @@ https://devblogs.microsoft.com/dotnet/configureawait-faq/
   К примеру нажатие клавиш или то что мы стукнули мышкой куда то, провели ей где то.
 1) Для того что бы закидывать в UI поток изменение его объекта (приходится из-за STA, COM) используется SynchronizationContext,
    который пробрасывает в UI поток делегат на исполнение (чаще всего с изменением какого-то объекта/объектов)
-2) Других и не знаю, только для UI
+
+Других и не знаю, только для UI, это же подтверждает то что при старте не в UI приложении SyncContext = null 
+   + производные только для WPF и WinForm прописаны на MSDN
 
 Неявная проблема:
    Когда мы хотим использовать в UI синхронном потоке асинхронный код, ожидая его с помощью Wait() и Result, 
@@ -18,8 +20,8 @@ https://devblogs.microsoft.com/dotnet/configureawait-faq/
 
 Что бы этого избежать пример:
 ```
-TaskScheduler _sync;
-ctor _sync = TaskScheduler.FromCurrentSynchronizationContext();
+TaskScheduler _uiScheduler;
+OnLoad() => _uiScheduler = TaskScheduler.FromCurrentSynchronizationContext();
 
 void StartDomain(object o)
 {
@@ -42,9 +44,9 @@ private void RunSyncronized(Action action)
     Task.Factory.StartNew(() =>
     {
         action.Invoke();
-    }, System.Threading.CancellationToken.None, TaskCreationOptions.None, _sync);
+    }, System.Threading.CancellationToken.None, TaskCreationOptions.None, _uiScheduler);
 }
 ```
 
 Тут от UI потока WPF создаётся Task, что бы подменить SyncContext у дочернего потока, который будет синхронно ожидать завершения.
-Реализация SyncContext внутри Task уже позволяет разлочивать ожидающий поток
+SyncContext внутри обычного Task уже нет, поэтому позволяет разлочивать ожидающий поток ААА??

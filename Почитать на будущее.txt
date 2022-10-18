@@ -1,4 +1,7 @@
-﻿PEP8 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
+﻿Debugger, который внедряется в процесс что бы глянуть стеки потоков
+	https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/
+
+PEP8 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
 
 Partioner
 	https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.concurrent.partitioner-1?view=net-6.0
