@@ -1,0 +1,86 @@
+System.Threading.Tasks.TaskCompleteSource<TResult>
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.tasks.taskcompletionsource-1?view=net-6.0
+https://ru.stackoverflow.com/questions/780270/%D0%92-%D1%87%D0%B5%D0%BC-%D1%81%D0%BC%D1%8B%D1%81%D0%BB-taskcompletionsourcet-%D0%B8-%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%B5%D0%B3%D0%BE-%D0%BB%D1%83%D1%87%D1%88%D0%B5-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C
+
+Любое ожидание и операцию может превратить в таск, который удобно с помощью TPL ожидать.
+Самый крайний случай. Лучше использовать другие уже доступные готовые async методы.
+По большому счёту представляет из себя примитив для создания тасков ожидания.
+
+! Тут написано, что кто то использует обычно только если API построено на событиях (пример с сокетами Windows phone 8)
+  https://stackoverflow.com/questions/15316613/when-should-taskcompletionsourcet-be-used
+
+! + Говорят, в старых версиях языка, когда не очень хотим создавать лишний поток если результат уже есть в кэше.
+    https://stackoverflow.com/questions/8575889/how-to-conditionally-run-a-code-asynchonously-using-tasks
+
+Создаётся и отдаётся наружу как Task<T> (return tcs.Task), который будет вечно ждать пока кто-нибудь не нажмёт tcs.SetResult(T).
+Пример:
+```
+async Task<char> WaitInput()
+{
+    var tcs = new TaskCompletionSource<char>();
+    SourceInputHandler handler = (o, args) => tcs.SetResult(args.Input);
+    source.InputReceived += handler;
+    try
+    {
+        return await tcs.Task;
+    }
+    finally
+    {
+        source.InputReceived -= handler;
+    }
+}
+```
+```
+public Task<Args> SomeApiWrapper()
+{
+    TaskCompletionSource<Args> tcs = new TaskCompletionSource<Args>(); 
+
+    var obj = new SomeApi();
+
+    // will get raised, when the work is done
+    obj.Done += (args) => 
+    {
+        // this will notify the caller 
+        // of the SomeApiWrapper that 
+        // the task just completed
+        tcs.SetResult(args);
+    }
+
+    // start the work
+    obj.Do();
+
+    return tcs.Task;
+}
+```
+
+Таким образом, он позволяет ожидать, наверное, любую операцию, вместо EventWaitHandle. 
+В виде таска потому что гораздо удобнее и красивее.
+
+Пример из жизни человека:
+```
+public static Task<Socket> AcceptAsync(this Socket socket)
+ {
+    if (socket == null)
+        throw new ArgumentNullException("socket");
+
+    var tcs = new TaskCompletionSource<Socket>();
+
+    socket.BeginAccept(asyncResult =>
+    {
+        try
+        {
+            var s = asyncResult.AsyncState as Socket;
+            var client = s.EndAccept(asyncResult);
+
+            tcs.SetResult(client);
+        }
+        catch (Exception ex)
+        {
+            tcs.SetException(ex);
+        }
+
+    }, socket);
+
+    return tcs.Task;
+}
+```

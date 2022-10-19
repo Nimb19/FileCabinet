@@ -1,0 +1,29 @@
+Async/await anything
+https://devblogs.microsoft.com/pfxteam/await-anything/
+https://devblogs.microsoft.com/dotnet/configureawait-faq/
+
+Async/await - ключевые слова для компилятора, которые используются для автогенерации кода, 
+который позволит ожидать задачи параллельно, то есть асинхронно с основным потоком.
+
+Асинхронно ожидать позволяет метод GetAwaiter, который можно явно указать через интерфейс INotifyCompletion, 
+хотя реализовывать интерфейс не обязательно (не важно будет ли метод членом класса, 
+статическим или будет доступен в расширении где то далеко, главное что бы компилятор его увидел).
+После того как это метод доступен - можно смело ожидать чего-либо через await, 
+компилятор сам поймёт и сгенерирует кода, добавив вызов GetAwaiter().
+
+Пример:
+```
+public static TaskAwaiter GetAwaiter(this TimeSpan timespan) =>
+	Task.Delay(timespan).GetAwaiter();
+
+// Где то в Main
+await TimeSpan.FromMinutes(1);
+``` 
+То же самое можно сделать для любого типа или структуры.
+ТО ЕСТЬ `await 15000` НЕ ДОЛЖНО УДИВЛЯТЬ )
+Или
+await DateTime.Now.AddMinutes(1); // omg
+
+Вообщем всё что угодно, ещё один пример: загрузка документов с перечисления адресов
+await from url in urls select DownloadAsync(url);
+
