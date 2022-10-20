@@ -1,0 +1,54 @@
+interface System.Runtime.CompilerServices.INotifyCompletion
+https://devblogs.microsoft.com/pfxteam/await-anything/
+
+! Судя по комментам не следует пытаться самостоятельно реализовывать этот интерфейс, кроме как для перенаправления потока.
+
+Реализует интерфейс для реализации асинхронного ожидания (await). 
+Ожидать можно всё что угодно, что предполагает возвращение какого-то результата.
+
+ВЕСЬ класс выполняется синхронно по умолчанию. Используются такие классы как результат метода 
+INotifyComletion GetAwaiter(object)
+
+Класс инициализируется в потоке, из которого был вызван, возвращается его экземпляр.
+Далее компилятор уже вызывает GetResult (в потоке в котором мы и приходили к GetAwaiter и инициализации) 
+и по завершению продолжает работу текущего метода, передавая его хвост в OnCompleted(action), 
+(самому создавать такие интерфейсы не нужно, обычно их используют только для перенаправления потоков).
+
+Обязательный только метод OnCompleted(action) - в него передаётся хвост метода, который честно будет выполнятся дальше, после получения результата.
+public bool IsCompleted { get; } - указывает завершена ли задача
+public void GetResult() - ждёт завершения задачи и возвращает результат
+
+Пример перенаправления потока:
+```
+public static ControlAwaiter GetAwaiter(this Control control)
+{
+    return new ControlAwaiter(control);
+}
+
+public struct ControlAwaiter : INotifyCompletion
+{
+    private readonly Control m_control;
+
+    public ControlAwaiter(Control control)
+    { 
+        m_control = control;
+    }
+
+    public bool IsCompleted
+    { 
+        get { return !m_control.InvokeRequired; }
+    }
+
+    public void OnCompleted(Action continuation)
+    { 
+        m_control.BeginInvoke(continuation); 
+    }
+
+    public void GetResult() { }
+}
+```
+То есть тут мы в основном потоке ждём выполнения BeginInvoke остальной части метода.
+
+
+!! Полезный пример использования с классом Dispatcher для уменьшения стека
+   https://ru.stackoverflow.com/questions/458422/%d0%9a%d0%b0%d0%ba-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d1%8c%d0%bd%d0%be-%d1%83%d0%bc%d0%b5%d0%bd%d1%8c%d1%88%d0%b8%d1%82%d1%8c-%d1%80%d0%b0%d0%b7%d0%bc%d0%b5%d1%80-%d1%81%d1%82%d0%b5%d0%ba%d0%b0/458425#458425
