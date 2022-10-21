@@ -1,0 +1,94 @@
+abstract System.Threading.Tasks.TaskScheduler
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.tasks.taskscheduler?view=net-6.0
+https://devblogs.microsoft.com/dotnet/configureawait-faq/
+
+! ThreadSafe класс
+
+Распределяет задачи в очередь на потоки.
+TaskScheduler.Default - будет распределять задачи по тред пулу
+Так же можно использовать реализации 
+	Для использования своих/своего потока (например, перенаправлять в UI);
+	Ограничивать кол-во выполняемых потоков;
+	Задавать им приоритет;
+	Выполнять эксклюзивные по одиночке;
+    
+	и т.д. всё что можно придумать планировщику делегатов.
+
+! Планировщик идеологически гарантирует, что делегат будет выполнен.
+
+Реализован класс для обеспечения кастомных логик планировки + дефолтный даёт буст производительности, обеспечивая крутую планировку.
+
+
+Свойства:
+    Current { get; } - возвращает текущий
+    Default { get; } - возвращает дефолтный
+    int Id { get; } - возвращает Id текущего потока
+    int MaximumConcurrencyLevel { get; } - максимальный уровень параллелизма, поддерживаемым текущим планировщиком
+
+Методы:
+    FromCurrentSynchronizationContext() - создаёт TaskScheduler на основе текущего SynchronizationContext 
+                                          ! TaskScheduler в этом случае action из QueueTask в Post засовывает
+    GetScheduledTasks() - возвращает таски в очереди на выполнение (только для отладки используется обычно)
+    QueuTask(Task) - ставит на очередь таск
+    bool TryDequeue(Task) - пытается удалить задачу с очереди (omg, можно выкидывать из планировщика неугодные задачи из под коробки)
+    bool TryExecuteTask(Task) - пытается выполнить предоставленную задачу в планировщике
+    bool TryExecuteTaskInline(Task, Boolean былаЛиЗадачаРанееПоставленаВОчередь) - определяет можно ли выполнить таск синхронно, если можно выполняет
+
+События:
+    UnobservedTaskException - можем перехватить инфу о исключении внутри TaskScheduler'а.
+                              Вызывается только во время политики эскалации исключений. 
+                              По умолчанию политика - убивать процесс при получении ошибки.
+                              ! например .Wait() и .Result перехватывают ошибку уже в свой поток из тред пула. ! хотя хз связано ли это
+                                https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.tasks.taskscheduler.unobservedtaskexception?view=net-6.0
+
+Пример продолжения задачи в контексте нового TaskScheduler'а
+```
+private static readonly HttpClient s_httpClient = new HttpClient();
+
+private void downloadBtn_Click(object sender, RoutedEventArgs e)
+{
+    s_httpClient.GetStringAsync("http://example.com/currenttime").ContinueWith(downloadTask =>
+    {
+        downloadBtn.Content = downloadTask.Result;
+    }, TaskScheduler.FromCurrentSynchronizationContext());
+}
+```
+Равносильно:
+```
+private static readonly HttpClient s_httpClient = new HttpClient();
+
+private void downloadBtn_Click(object sender, RoutedEventArgs e)
+{
+    SynchronizationContext sc = SynchronizationContext.Current;
+    s_httpClient.GetStringAsync("http://example.com/currenttime").ContinueWith(downloadTask =>
+    {
+        sc.Post(delegate
+        {
+            downloadBtn.Content = downloadTask.Result;
+        }, null);
+    });
+}
+```
+Однако оба этих подхода явно используют обратные вызовы. Вместо этого мы хотели бы написать код естественным образом с async/ await:
+```
+private static readonly HttpClient s_httpClient = new HttpClient();
+
+private async void downloadBtn_Click(object sender, RoutedEventArgs e)
+{
+    string text = await s_httpClient.GetStringAsync("http://example.com/currenttime");
+    downloadBtn.Content = text;
+}
+```
+
+
+Пример TaskScheduler.Current
+```
+static void Main()
+    {
+        var CESP = new ConcurrentExclusiveSchedulerPair();
+        Task.Factory.StartNew(() =>
+        {
+            Console.WriteLine(TaskScheduler.Current == cesp.ExclusiveScheduler);
+        }, default, TaskCreationOptions.None, cesp.ExclusiveScheduler).Wait();
+    }
+```

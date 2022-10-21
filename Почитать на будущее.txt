@@ -1,4 +1,11 @@
-﻿Debugger, который внедряется в процесс что бы глянуть стеки потоков
+﻿MDI формат окон
+	Наверное https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/multiple-document-interface-mdi-applications?view=netframeworkdesktop-4.8
+
+Mono.Cecil: делаем свой «компилятор»
+	https://habr.com/ru/post/109167/
+	https://github.com/Fody/ConfigureAwait/blob/master/ConfigureAwait.Fody/ModuleWeaver.cs
+
+Debugger, который внедряется в процесс что бы глянуть стеки потоков
 	https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/
 
 PEP8 https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html
