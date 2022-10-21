@@ -1,4 +1,7 @@
-﻿MDI формат окон
+﻿Зоопарк машин яндекса
+	https://habr.com/ru/company/yandex/blog/686324/
+
+MDI формат окон
 	Наверное https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/multiple-document-interface-mdi-applications?view=netframeworkdesktop-4.8
 
 Mono.Cecil: делаем свой «компилятор»
