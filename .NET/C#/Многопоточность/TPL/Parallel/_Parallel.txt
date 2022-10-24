@@ -1,6 +1,10 @@
 static Parallel (TPL)
 https://learn.microsoft.com/ru-ru/dotnet/standard/parallel-programming/data-parallelism-task-parallel-library
 
+Что выбрать Parallel или PLINQ? В общем случае Parallel быстрее будет останавливать потоки
+	https://habr.com/ru/post/135942/
+
+ThreadSafe статический класс
 
 Особенности: 
 1. https://stackoverflow.com/questions/37133104/performances-of-plinq-vs-tpl
@@ -24,12 +28,8 @@ https://learn.microsoft.com/ru-ru/dotnet/standard/parallel-programming/data-para
 
 Статические методы:
 1. ParallelLoopResult For(iStart, iLenghth, Action<int>) - как и банальный цикл for принимает стартовый и последний индекс, передаёт его в делегат
-2. ParallelLoopResult ForEach(IEnumerable<T>, Action<T>) - загружаем коллекцию и берём из неё с помощью делегата значения параллельно
-3. Task ForEachAsync() - само за себя говорит
-4. void Invoke() - не всегда код запустится параллельно, иногда синхронно
+1. ParallelLoopResult ForEach(iStart, iLenghth, Action<int>) - допиши если интересно
+2. Task ForEachAsync() - само за себя говорит
+3. void Invoke(ParallelOptions, Action[]) - не всегда код запустится параллельно, иногда синхронно
 
-Перегрузки поддерживают типизированные доступ (<T>), токены отмены, различные настройки распараллеливания //TODO: допиши.
-
-
-Впринципе можно особенности глянуть в книге
-Шаблоны параллельного программирования: описание и применение в .NET Framework 4.
+Чисто For* операции, без Linq методов. + Invoke конечно.

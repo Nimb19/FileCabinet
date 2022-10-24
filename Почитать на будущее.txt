@@ -4,9 +4,16 @@
 MDI формат окон
 	Наверное https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/multiple-document-interface-mdi-applications?view=netframeworkdesktop-4.8
 
-Mono.Cecil: делаем свой «компилятор»
-	https://habr.com/ru/post/109167/
-	https://github.com/Fody/ConfigureAwait/blob/master/ConfigureAwait.Fody/ModuleWeaver.cs
+Вместо своего компилятора советуют добавлять в приложение Python, Lua, к примеру. Не фиг изобретать свой велосипед.
+{
+	GrobolL/ из Gracefule Emit (Gremit)
+	OpCode
+	Быстрая и удобная генерация IL
+		https://habr.com/ru/company/skbkontur/blog/262711/
+	Mono.Cecil: делаем свой «компилятор»
+		https://habr.com/ru/post/109167/
+		https://github.com/Fody/ConfigureAwait/blob/master/ConfigureAwait.Fody/ModuleWeaver.cs
+}
 
 Debugger, который внедряется в процесс что бы глянуть стеки потоков
 	https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/
