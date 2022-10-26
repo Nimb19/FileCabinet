@@ -1,0 +1,9 @@
+System.Runtime.Serialization.IDeserializationCallback
+https://learn.microsoft.com/ru-ru/dotnet/api/system.runtime.serialization.ideserializationcallback.ondeserialization?view=net-7.0
+
+Реализует один метод void OnDeserialization(object? sender)
+
+Если объект, который был десериализован, реализовывал этот интерфейс, то десериализатор вызовет метод OnDeserialization.
+Нужно это когда после десериализации мы хотим вычислить какие-то приватные значения, поля, состояние.
+
+! То есть, даёт возможность настраивать логику десериализации самостоятельно. Мы сами можем заполнять приватные поля

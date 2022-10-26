@@ -1,0 +1,14 @@
+System.Collections.Generic.HashSet<T>
+https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.generic.hashset-1?view=net-7.0
+
+Не ThreadSafe - https://stackoverflow.com/questions/18922985/concurrent-hashsett-in-net-framework
++ ConcurrentHashSet - не существует вроде
+
+Высокопроизводительная для операций с коллекцией. 
+Своеобразный Dictionary, ключи это хэш коды, которые ставятся автоматически. Коллекция не может быть упорядочена, не может быть одинаковых элементов.
+Представляет высокопроизводительные операции, по примеру с Dictionary.
+
+Предоставляет множество мат. операций, таких как сложение (объединение), вычитание набора.
+Ключ. слова подмножество, надмножество набора и т.д.
+
+! Переопределяет многие Linq методы под себя

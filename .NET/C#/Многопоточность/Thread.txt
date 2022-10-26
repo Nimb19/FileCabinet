@@ -1,0 +1,7 @@
+sealed System.Threading.Thread
+https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.thread?view=net-6.0
+
+В основном сейчас obsolete, потому что заменён Task'ом из библиотеки TPL.
+
+Из интересного
+static bool Yield() - может уступить управление другому потоку процессора, если таковой есть. В другой процессор не лезет

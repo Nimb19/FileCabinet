@@ -1,9 +1,12 @@
+Перед собесом пройтись глазами: https://learn.microsoft.com/ru-ru/dotnet/api/system.span-1?view=net-6.0
+
+
 На прошлой работе много занимался с/много работал дома с: 
 C#, .NET Core, EntityFramework, JetBrains ReSharper, MsTest, NBomber, GRPC, LINQ, 
-	многопоточность (TPL, PLINQ, всё подряд изучал в System.Threading (события синхронизации, volatile, memorybarrier, ...), Collections.Concurrent), 
+	многопоточность (TPL, PLINQ, всё подряд изучал в System.Threading (события синхронизации, volatile, MemoryBarrier, ...), Collections.Concurrent), 
 	// SignalR, надо аутентификацию и шифрование с библиотекой Cryptography
 ASP.NET, WPF, CLI
-Долго, хорошо знаком с СУБД MSSQL, PGSQL, чуть с InfluxDB // Чек сложные запросы: Having
+Давно и хорошо знаком с СУБД MSSQL, PGSQL, чуть с InfluxDB // Чек сложные запросы: Having
 RabbitMQ, Docker, Azure Pipelines, Virtual Machine Manager (hyper-V)
 Grafana, Kibana, Prometheus, Telegraph, ClickHouse // убери то что не выучишь
 Тестировал Apache, Nginx 
