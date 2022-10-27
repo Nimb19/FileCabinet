@@ -1,4 +1,6 @@
-﻿Зоопарк машин яндекса
+﻿Marshal c#
+
+Зоопарк машин яндекса
 	https://habr.com/ru/company/yandex/blog/686324/
 
 MDI формат окон
@@ -131,20 +133,10 @@ https://habr.com/ru/post/130577/ // распределённые системы
 https://habr.com/ru/post/130577/ // CAP теорема
 Методологии архитектур, ISO стандарты. Что это за слово и чем отличается от других стандартов. Сколько основных мировых стандартов типа ISO
 
-// Работа процессорв, дескрипторы, виртуальная память, файл подкчаки
+// виртуальная память, файл подкчаки
 // Многопоточность: 
-	Сколько выдаётся потоков приложению в начале его работы. Дофига если открыть во время отладки
-	Thread.SetMinimumThread(3)
-	Сколько потоков можно содать? Столько же сколько ядер? Поддержка мультипрцоессорности в играх это оно? виртуальный ядра/процессоры
-	Как забить какое то ядро по максимуму? Бесконечный цикл?
-	Что такое конкрутентные потоки, массивы, какие есть способы взаимодействия
 	Задача: сделать 3+ потока один из них будет добавлять элементы в коллекцию, второй удалять по предикату, третий будет читать из потока
 	https://habr.com/ru/company/jugru/blog/468611/ // TimerQueue
-	PLinq, ThreadPool
-	https://ru.stackoverflow.com/questions/872005/%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%BA%D0%BE%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B4%D0%BD%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%B2
-	https://techcommunity.microsoft.com/t5/windows-blog-archive/pushing-the-limits-of-windows-handles/ba-p/723848
-	https://devblogs.microsoft.com/oldnewthing/20060901-11/?p=29883
-	https://devblogs.microsoft.com/oldnewthing/20070718-00/?p=25963
 // SqlProfiler
 // Счётчики Windows // PerformanceЧёТоТам..
 // Счётчики Sql
