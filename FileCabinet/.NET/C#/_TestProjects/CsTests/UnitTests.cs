@@ -9,3 +9,16 @@ public class UnitTests
 
     }
 }
+
+//public struct test
+//{
+//    public int MyProperty { get; set; }
+//    //public test Test { get; set; }
+//    public test2 Test2 { get; set; }
+//}
+
+//public struct test2
+//{
+//    public int MyProperty { get; set; }
+//    public test Test { get; set; }
+//}
