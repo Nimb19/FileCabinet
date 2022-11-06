@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileCabinet", "FileCabinet\FileCabinet.csproj", "{21E22C41-1F88-4040-8623-7D927E05A3D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsTests", "FileCabinet\.NET\C#\TestProjects\CsTests\CsTests.csproj", "{280BD3D3-7D22-44BE-902B-FAAAD0F1AA52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsTests", "FileCabinet\.NET\C#\_TestProjects\CsTests\CsTests.csproj", "{280BD3D3-7D22-44BE-902B-FAAAD0F1AA52}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0887BACA-AF52-4BCE-90B8-243BD92A8855}"
 EndProject
