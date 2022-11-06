@@ -1,4 +1,11 @@
-﻿
+﻿Platinum Dev на ютубе https://www.youtube.com/c/PlatinumTechTalks/videos
+
+Три способа решения задачи на копирование дерева
+	https://www.youtube.com/watch?v=bQ8sFuxrjxs&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=9
+
+Сложность алгоритма 
+	https://www.youtube.com/watch?v=NYovSIHh5d0&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=9
+
 https://metanit.com/sharp/tutorial/3.21.php
 	Alexander Poplooukhin • 2 года назад
 	Partial class & methods для расширения автогенерируемого кода. Использование их в других случаях - признак нарушения принципа single responsibility, исключение - паттерн Фасад.

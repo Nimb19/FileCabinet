@@ -12,3 +12,5 @@
    https://www.youtube.com/watch?v=lylrXB9EJqs&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=6
 3. Ключ. слово abstract можно применять для классов, методов, свойств, индексаторов и событий.
    https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/abstract
+4. Утиная типизация у foreach 
+   https://www.youtube.com/watch?v=NYovSIHh5d0&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=8
