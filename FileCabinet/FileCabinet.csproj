@@ -55,6 +55,7 @@
 		<Content Include=".NET\C#\Многопоточность\События синхронизации потоков\ManualResetEvent.txt" />
 		<Content Include=".NET\C#\Многопоточность\События синхронизации потоков\ManualResetEventSlim.txt" />
 		<Content Include=".NET\C#\Многопоточность\События синхронизации потоков\_Краткий обзор.txt" />
+		<Content Include=".NET\C#\Фичи.txt" />
 		<Content Include=".NET\C#\Фишки и сахар.txt" />
 		<Content Include=".NET\EntityFramework.Core\CmdCommands.txt" />
 	</ItemGroup>
