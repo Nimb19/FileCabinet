@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include=".NET\C#\CmdUtils\Обновление или остановка программы.txt" />
+    <Content Include=".NET\C#\HostBuilder\Host builder это.txt" />
+    <Content Include=".NET\C#\HostBuilder\Web host builder это.txt" />
+    <Content Include=".NET\C#\MarketsApi\CryptoMarkets\Binance\CandleSticks.txt" />
+    <Content Include=".NET\C#\MarketsApi\CryptoMarkets\Quote.txt" />
+    <Content Include=".NET\C#\System.Collections\HashSet.Generic.txt" />
+    <Content Include=".NET\C#\System.Collections\IDeserializationCallback.txt" />
+    <Content Include=".NET\C#\System.Collections\Queue.Generic.txt" />
+    <Content Include=".NET\C#\System.Collections\Stack.Generic.txt" />
+    <Content Include=".NET\C#\System.Runtime.dll\AppDomain.txt" />
+    <Content Include=".NET\C#\System.Runtime.dll\MarshalByRefObject.txt" />
+    <Content Include=".NET\C#\System.Timers\Timer.txt" />
+    <Content Include=".NET\C#\Многопоточность\Barrier.txt" />
+    <Content Include=".NET\C#\Многопоточность\Interlocked.txt" />
+    <Content Include=".NET\C#\Многопоточность\Monitor.txt" />
+    <Content Include=".NET\C#\Многопоточность\ReaderWriterLockSlim.txt" />
+    <Content Include=".NET\C#\Многопоточность\SemaphoreSlim.txt" />
+    <Content Include=".NET\C#\Многопоточность\SpinLock.txt" />
+    <Content Include=".NET\C#\Многопоточность\SpinWait.txt" />
+    <Content Include=".NET\C#\Многопоточность\Thread.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\AsyncAwait.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\ConfigureAwait.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\Dataflow\_TPL_Dataflow.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\INotifyCompletion.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\Parallel\PLINQ\_PLINQ.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\Parallel\_Parallel.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\SynchronizationContext.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\Task.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\TaskCompletionSource.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\TaskScheduler.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\ThreadPool\ThreadPool.txt" />
+    <Content Include=".NET\C#\Многопоточность\TPL\_TPL.txt" />
+    <Content Include=".NET\C#\Многопоточность\WaitHandle\EventWaitHandle.txt" />
+    <Content Include=".NET\C#\Многопоточность\WaitHandle\Mutex.txt" />
+    <Content Include=".NET\C#\Многопоточность\WaitHandle\Semaphore.txt" />
+    <Content Include=".NET\C#\Многопоточность\WaitHandle\_WaitHandle.txt" />
+    <Content Include=".NET\C#\Многопоточность\_Понятия.txt" />
+    <Content Include=".NET\C#\Многопоточность\Барьеры памяти и неблокирующая синхронизация в .NET\MemoryBarrier.txt" />
+    <Content Include=".NET\C#\Многопоточность\Барьеры памяти и неблокирующая синхронизация в .NET\Thread.Volatle is exception.txt" />
+    <Content Include=".NET\C#\Многопоточность\Барьеры памяти и неблокирующая синхронизация в .NET\volaitle.txt" />
+    <Content Include=".NET\C#\Многопоточность\Барьеры памяти и неблокирующая синхронизация в .NET\Volatile.txt" />
+    <Content Include=".NET\C#\Многопоточность\Барьеры памяти и неблокирующая синхронизация в .NET\Барьеры памяти и неблокирующая синхронизация в .NET.txt" />
+    <Content Include=".NET\C#\Многопоточность\События синхронизации потоков\AutoResetEvent.txt" />
+    <Content Include=".NET\C#\Многопоточность\События синхронизации потоков\CountdownEvent.txt" />
+    <Content Include=".NET\C#\Многопоточность\События синхронизации потоков\ManualResetEvent.txt" />
+    <Content Include=".NET\C#\Многопоточность\События синхронизации потоков\ManualResetEventSlim.txt" />
+    <Content Include=".NET\C#\Многопоточность\События синхронизации потоков\_Краткий обзор.txt" />
+    <Content Include=".NET\C#\Фишки и сахар.txt" />
+    <Content Include=".NET\EntityFramework.Core\CmdCommands.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include=".NET\C#\TestProjects\" />
+  </ItemGroup>
+
+</Project>
