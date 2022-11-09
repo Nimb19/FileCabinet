@@ -13,6 +13,11 @@
 		<Content Include=".NET\C#\HostBuilder\Web host builder это.txt" />
 		<Content Include=".NET\C#\MarketsApi\CryptoMarkets\Binance\CandleSticks.txt" />
 		<Content Include=".NET\C#\MarketsApi\CryptoMarkets\Quote.txt" />
+		<Content Include=".NET\C#\System.Collections\Concurrent\_BlockingCollection.txt" />
+		<Content Include=".NET\C#\System.Collections\Concurrent\ConcurrentQueue.txt" />
+		<Content Include=".NET\C#\System.Collections\Concurrent\ConcurrentStack.txt" />
+		<Content Include=".NET\C#\System.Collections\Concurrent\ConcurrentBag.txt" />
+		<Content Include=".NET\C#\System.Collections\Concurrent\ConcurrentDictionary.txt" />
 		<Content Include=".NET\C#\System.Collections\HashSet.Generic.txt" />
 		<Content Include=".NET\C#\System.Collections\IDeserializationCallback.txt" />
 		<Content Include=".NET\C#\System.Collections\Queue.Generic.txt" />
