@@ -23,6 +23,7 @@
 		<Content Include=".NET\C#\System.Collections\Queue.Generic.txt" />
 		<Content Include=".NET\C#\System.Collections\Stack.Generic.txt" />
 		<Content Include=".NET\C#\System.Runtime.dll\AppDomain.txt" />
+		<Content Include=".NET\C#\System.Runtime.dll\IntPtr.txt" />
 		<Content Include=".NET\C#\System.Runtime.dll\MarshalByRefObject.txt" />
 		<Content Include=".NET\C#\System.Timers\Timer.txt" />
 		<Content Include=".NET\C#\Многопоточность\Barrier.txt" />

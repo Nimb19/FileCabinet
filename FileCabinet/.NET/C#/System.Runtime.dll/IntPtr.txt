@@ -1,0 +1,22 @@
+﻿readonly struct System.IntPtr (nint)
+https://ru.stackoverflow.com/questions/16226/%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-intptr
+https://learn.microsoft.com/ru-ru/dotnet/api/system.intptr?view=net-7.0
+
+Представляет собой целое чилсо. Используется вместо int ради совместимости и с 32 и 64 битными системами.
+Это простой указатель на что-либо, как Id у какой то записи в БД.
+
+Используется в том числе для дескрипторов, широко используется, например, в FyleStream.
+
+
+Console.WriteLine($"size of nint = {sizeof(nint)}");
+Console.WriteLine($"size of nuint = {sizeof(nuint)}");
+
+// output when run in a 64-bit process
+//size of nint = 8
+//size of nuint = 8
+
+// output when run in a 32-bit process
+//size of nint = 4
+//size of nuint = 4
+
+(sizeof возвращает кол-во байт, в которых по 8 бит естественно)

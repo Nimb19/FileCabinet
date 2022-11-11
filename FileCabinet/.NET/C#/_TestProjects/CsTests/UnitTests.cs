@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace CsTests;
 
 [TestClass]
@@ -6,7 +8,7 @@ public class UnitTests
     [TestMethod]
     public void Test()
     {
-
+        Trace.WriteLine($"{new Exception("test")}");
     }
 }
 
