@@ -8,7 +8,13 @@ public class UnitTests
     [TestMethod]
     public void Test()
     {
-        Trace.WriteLine($"{new Exception("test")}");
+        Exception exc = new ArgumentNullException("dasdas");
+        if (exc is ArgumentNullException)
+            Trace.WriteLine($"Success");
+        if (exc is Exception)
+            Trace.WriteLine($"Success 2");
+        if (exc is AccessViolationException)
+            Trace.WriteLine($"Success 3");
     }
 }
 
