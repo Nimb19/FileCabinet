@@ -8,14 +8,11 @@ public class UnitTests
     [TestMethod]
     public void test()
     {
-        var tasks = new List<Task>();
-        for (int i = 0; i < 5; i++)
-        {
-            var ic = i;
-            tasks.Add(new Task(() => { Trace.WriteLine($"ic_{ic}: {i}"); }));
-        }
-        tasks.ForEach(x => x.Start());
-        Task.WaitAll(tasks.ToArray());
+        Trace.WriteLine($"INIT id = {Thread.CurrentThread.ManagedThreadId}");
+        var timer = new Timer((state) => Trace.WriteLine(Thread.CurrentThread.ManagedThreadId), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+        Task.Delay(60000).Wait();
+        Trace.WriteLine("Dispose");
+        timer.Dispose();
     }
 
     [TestMethod]
