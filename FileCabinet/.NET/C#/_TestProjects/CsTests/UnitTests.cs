@@ -6,15 +6,29 @@ namespace CsTests;
 public class UnitTests
 {
     [TestMethod]
-    public void Test()
+    public void test()
     {
-        Exception exc = new ArgumentNullException("dasdas");
-        if (exc is ArgumentNullException)
-            Trace.WriteLine($"Success");
-        if (exc is Exception)
-            Trace.WriteLine($"Success 2");
-        if (exc is AccessViolationException)
-            Trace.WriteLine($"Success 3");
+        var tasks = new List<Task>();
+        for (int i = 0; i < 5; i++)
+        {
+            var ic = i;
+            tasks.Add(new Task(() => { Trace.WriteLine($"ic_{ic}: {i}"); }));
+        }
+        tasks.ForEach(x => x.Start());
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    [TestMethod]
+    public void ТестНаЗамыкание()
+    {
+        var tasks = new List<Task>();
+        for (int i = 0; i < 5; i++)
+        {
+            var ic = i;
+            tasks.Add(new Task(() => { Trace.WriteLine($"ic_{ic}: {i}"); }));
+        }
+        tasks.ForEach(x => x.Start());
+        Task.WaitAll(tasks.ToArray());
     }
 }
 
