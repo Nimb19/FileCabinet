@@ -1,4 +1,6 @@
-﻿Плохой/хороший код
+﻿руководство Netflix для микросервисов https://habr.com/ru/company/ua-hosting/blog/507526/
+
+Плохой/хороший код
 	https://rules.sonarsource.com/csharp/RSPEC-2360
 
 Про Platform invoke
