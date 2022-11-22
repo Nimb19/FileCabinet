@@ -10,11 +10,18 @@ public class UnitTests
     [TestMethod]
     public void test()
     {
-        var t = "sadasdas";
-        var obj = (object)t;
-
-        var ostr = obj as string;
-        Trace.WriteLine($"{ostr == null}");
+        int complete = 0;
+        var t = new Task(() =>
+        {
+            bool toggle = false;
+            while (complete == 0) 
+                toggle = !toggle;
+            Trace.WriteLine("Success");
+        });
+        t.Start();
+        Thread.Sleep(1000);
+        Interlocked.Increment(ref complete);
+        Assert.IsTrue(t.Wait(5000), "за 5 сек не завершился");
     }
 
     public enum testen
