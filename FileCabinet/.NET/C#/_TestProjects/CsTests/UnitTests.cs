@@ -7,8 +7,53 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
+    public struct Point
+    {
+        public int x;
+        public int y;
+    }
+
     [TestMethod]
-    public void test()
+    public void teststructinarray()
+    {
+        var p = new Point() { x = 5, y = 9 };
+        var list = new List<Point>(10);
+        list.Add(p);
+        //list[0].x = 90;//ошибка компил€ции
+        // вместо этого присвой заново =>
+        list[0] = p;
+
+        var array = new Point[] { p };
+        array[0].x = 90;//все ок
+
+        // ѕотому что индексаци€ в классах это вызов метода, а в массивах - пр€мое обращение к элементу
+        // Ќо в массиве будет содержатьс€ всЄ таки копи€ изначальной структуры
+
+        Trace.WriteLine($"Success: array[0].x={array[0].x}; p={p.x}");
+    }
+
+    public class StatTest1
+    {
+        // argumentnullexception. ѕор€док имеет значение
+        private static bool b = a.Any();
+        private static string a = "5";
+
+        static StatTest1()
+        {
+            Trace.WriteLine("stat");
+        }
+    }
+
+    [TestMethod]
+    public void teststatic()
+    {
+        new StatTest1();
+
+        Trace.WriteLine("Success");
+    }
+
+    [TestMethod]
+    public void testdeadlock()
     {
         int complete = 0;
         var t = new Task(() =>
@@ -121,6 +166,10 @@ public class UnitTests
         // https://www.youtube.com/watch?v=M32SEu0hY7w 56 min primerno
         // только на этапе компил€ции одни и те же строки будут интернированы
         // (или одни и те же, но полученные в текущей строке (pstr + "o" не считаетс€ за формирование в одной сроке, считаетс€ "hell" + "o"))
+        
+        // »нтернирована ли строка можно проверить String.IsIntern, можно так же самому добавить если надо, но тогда они останутс€ до завершени€ приложени€
+        // (object)"Hi" == (object)"Hi" всегда истинно, спасибо интернированию.
+        // ѕопробуйте проверить этот код в окне интерпретации, и результат будет отрицательным, так как отладчик не интернирует ваши строки.
     }
 
     [TestMethod]
