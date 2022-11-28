@@ -7,6 +7,26 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
+    [TestMethod]
+    public void testlinq()
+    {
+        var list = Enumerable.Range(0, 10).ToList();
+
+        var arrRes1 = list.Where(x => x % 2 == 0);
+        Trace.WriteLine($"arrRes1.Count() == {arrRes1.Count()}");
+
+        list.Add(11);
+        list.Add(12);
+        Trace.WriteLine("added 11 i 12");
+
+        var arrRes2 = list.Where(x => x % 2 == 0);
+        Trace.WriteLine($"arrRes1.Count() == {arrRes1.Count()}");
+        Trace.WriteLine($"arrRes2.Count() == {arrRes2.Count()}");
+
+        Trace.WriteLine($"Success");
+    }
+
+
     public struct Point
     {
         public int x;
