@@ -1,0 +1,10 @@
+﻿{
+  "CertificatesPaths": {
+    "Windows": [
+      "C:\\ApacheCert\\cert.crt"
+    ],
+    "Linux": [
+      "/etc/ca-certificates/monitel/certname.crt"
+    ]
+  }
+}
