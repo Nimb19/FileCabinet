@@ -1,4 +1,10 @@
-﻿руководство Netflix для микросервисов https://habr.com/ru/company/ua-hosting/blog/507526/
+﻿Лучшие практики RabbitMQ
+	https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html
+
+Практическое руководство по реализации Observability в DevOps
+	https://habr.com/ru/company/ruvds/blog/701034/
+
+руководство Netflix для микросервисов https://habr.com/ru/company/ua-hosting/blog/507526/
 
 Плохой/хороший код
 	https://rules.sonarsource.com/csharp/RSPEC-2360
