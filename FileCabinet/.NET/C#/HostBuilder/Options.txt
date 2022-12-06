@@ -1,0 +1,13 @@
+IOption<>, IOptionSceernshot<>, IOptionMonitor<>
+https://habr.com/ru/post/507442/
+https://stackoverflow.com/questions/51097425/reloading-options-with-reloadonchange-in-asp-net-core
+https://learn.microsoft.com/en-us/aspnet/core/fundamentals/change-tokens?view=aspnetcore-7.0
+
+1. IOption (singleton) - при старте приложения считывает результат и всё, не меняет значение больше
+2. IOptionSnapshot (scoped) - снимок опции на момент инжектирования. не может измениться пока не завершиться scope
+3. IOptionsMonitor (singleton) - тот же IOtion, только с доп. методом регистрации изменения, который возникнет если конфигурация изменится.
+   Тут аккуратнее, потому что если подписаться в конструкторе к примеру -> если читать конфигурацию несколько раз, то она может меняться прям во время метода.
+
+   Тут в помощь IOptionMonitorCache - кэш на базе IOptionMonitor.
+
+Не путай конфигурацию (внешние настройки) и опции (внутренние настройки).

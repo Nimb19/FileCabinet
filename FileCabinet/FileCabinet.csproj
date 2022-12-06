@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 		<Content Include=".NET\C#\CmdUtils\Обновление или остановка программы.txt" />
+		<Content Include=".NET\C#\HostBuilder\Options.txt" />
 		<Content Include=".NET\C#\HostBuilder\Host builder это.txt" />
 		<Content Include=".NET\C#\HostBuilder\Web host builder это.txt" />
 		<Content Include=".NET\C#\MarketsApi\CryptoMarkets\Binance\CandleSticks.txt" />
