@@ -2,6 +2,8 @@
   GetEnumerator, Yield
 ! Баднда 4
 
+kub https://andrewlock.net/series/deploying-asp-net-core-applications-to-kubernetes/
+
 Архитектурные простые паттерны // https://refactoring.guru/ru/design-patterns/decorator
 Архитектурные паттерны о том как строятся системы плагинов
 Сеть, сокеты, обмен данными, клиент/сервер сделай что нибудь с плотными паттернами
