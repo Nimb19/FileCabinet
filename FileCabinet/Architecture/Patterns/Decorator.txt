@@ -1,6 +1,7 @@
 ѕаттерн "ƒекоратор" (на рус. - обЄртка)
 https://refactoring.guru/ru/design-patterns/decorator
 
+! difference between Proxy and Decorator https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern
 
 »спользуетс€ как оджеда на люд€х, просто обЄртка поверх какого-то интерфейса, что бы потом объект, 
 реализующий этот интерфейс можно было обернуть под какую-нибудь логику, использу€ и прокидыва€ объект дальше.
