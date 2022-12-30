@@ -1,0 +1,32 @@
+Builder, Fluent builder. Порождающий паттерн.
+https://www.youtube.com/watch?v=2ReKJaM2glI
+
+Builder паттерн - используется, что бы не было тяжёлых на вид контрукторов. 
+Когда проще задать параметры становится не через контруктор (коих миллион было бы вместо Host.Builder'а для ASP.NET).
+
+Создаётся отдельный класс '{class}Builder', в котором задаём параметры методами. 
+
+Для бургера это:
+burgerBuilder.UseCheese();
+burgerBuilder.UsePartA();
+var burger = burgerBuilder.Build();
+
+```
+FluentBuilder - такой же билдер, только возвращающий сам себя для удобства:
+
+var burger = burgerBuilder.UseCheese()
+			 .UsePartA();
+			 .Build();
+```
+
+
+Так можно использовать то, в каком порядке и сколько объектов можно положить. + логика, что хорошо.
+
+-----------------------------------------------------------------
+У Builder есть доп. абстракция Director - класс. который руководит созданием объектов. 
+Лишняя абстракция всегда плохо, поэтому без надобнасти добавлять, конечно, не нужно.
+
+Пример когда хочется вынести логику использования билдеров в Director'ов:
+1) var burger = new JapanBurgerDirector(IBurgerBuilder).Build();
+2) var burger = new ЧикенХитСХолопеньоBurgerDirector(IBurgerBuilder).Build();
+2) var burger = new МонбланСКурицейBurgerDirector(IBurgerBuilder).Build(IBuildOptions);
