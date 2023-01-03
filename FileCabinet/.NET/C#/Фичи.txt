@@ -15,3 +15,6 @@
 4. Утиная типизация у foreach 
    https://www.youtube.com/watch?v=NYovSIHh5d0&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=8
 5. Можно прерывать асинхронную операцию по таймауту с поры .NET 6.0 с помощью: await MethodAsync().WaitAsync(TimeSpan); // выбросит TimeoutException
+
+6. Профилировка - с помощью BenchmarkDotNet (мб наврал чуть в названии) 
+   https://www.youtube.com/watch?v=dCkYP03lXOs 2:21:~~ примеры мравнения производительности.
