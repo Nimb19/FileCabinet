@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Content Include=".NET\C#\CmdUtils\ProcessStarter.txt" />
 		<Content Include=".NET\C#\System.Collections\IQuereable.txt" />
 		<Content Include=".NET\C#\Стороннее полезное\Hangfire.txt" />
 		<Content Include=".NET\CmdUtils\Обновление или остановка программы.txt" />

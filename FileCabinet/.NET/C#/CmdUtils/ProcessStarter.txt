@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CmdUtils
+{
+    public static class ProcessStarter
+    {
+        /// <summary>
+        ///     Возвращаемый код при выходе по таймауту
+        /// </summary>
+        public const int TimeoutProcessCompletionCode = -1111;
+
+        public record class ProcessExitInfo(bool IsProcessWasClosedByTimeout, int ExitCode);
+
+        /// <summary> Стартовать процесс </summary>
+        /// <returns> ExitCode </returns>
+        public static ProcessExitInfo Start(string processPath, string args, string workingDirectory, ILogger logger, TimeSpan waitEndTimeout
+            , bool readStdOutAndErr = false, Encoding encoding = null)
+        {
+            using var process = CreateProcessWithStartInfo(processPath, args, workingDirectory, readStdOutAndErr, encoding);
+            logger.WriteLine($"Старт дочернего процесса '{processPath} {args}'");
+            var isSuccessExit = process.StartAndWaitForExit(waitEndTimeout, readStdOutAndErr);
+
+            var exitCode = isSuccessExit ? process.ExitCode : TimeoutProcessCompletionCode;
+            process.Close();
+
+            if (!isSuccessExit)
+            {
+                logger.Error($"Процесс завершился по таймауту в {waitEndTimeout.TotalSeconds} секунд");
+                return new(false, exitCode);
+            }
+
+            if (exitCode != 0)
+                logger.Error($"Процесс завершился с кодом отличным от нуля: {exitCode}");
+            else
+                logger.WriteLine($"Дочерний процесс '{processPath} {args}' завершён. Код выхода: {exitCode}");
+
+            return new(true, exitCode);
+        }
+
+        private static bool StartAndWaitForExit(this Process process, TimeSpan waitEndTimeout, bool readStdOutAndErr)
+        {
+            process.Start();
+
+            if (readStdOutAndErr)
+            {
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+            }
+
+            var isSuccessExit = process.WaitForExit((int)waitEndTimeout.TotalMilliseconds);
+            return isSuccessExit;
+        }
+
+        private static Process CreateProcessWithStartInfo(string processPath, string args, string workingDirectory, bool readStdOutAndErr, Encoding encoding)
+        {
+            var internalEncoding = encoding ?? Encoding.UTF8;
+            var processStartInfo = new ProcessStartInfo()
+            {
+                FileName = processPath,
+                Arguments = args,
+                UseShellExecute = false, // The Process object must have the UseShellExecute property set to false in order to redirect IO streams
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                StandardOutputEncoding = internalEncoding,
+                StandardErrorEncoding = internalEncoding,
+            };
+            if (!string.IsNullOrWhiteSpace(workingDirectory))
+                processStartInfo.WorkingDirectory = workingDirectory;
+
+            var process = new Process() { StartInfo = processStartInfo };
+
+            if (readStdOutAndErr)
+            {
+                // Допиши что бы был префикс (название процесса мб) если понадобится 
+                process.OutputDataReceived += (s, e) => { if (!string.IsNullOrWhiteSpace(e.Data)) Console.WriteLine($"{OutputPrefix} {e.Data}"); };
+                process.ErrorDataReceived += (s, e) => { if (!string.IsNullOrWhiteSpace(e.Data)) Console.WriteLine($"{OutputPrefix} [ERR] {e.Data}"); };
+            }
+
+            return process;
+        }
+
+        private static void WriteLine(this ILogger logger, string text)
+        {
+            logger?.Write(LogCategory.Info, LogPriority.Highest, text);
+        }
+
+        private static void Error(this ILogger logger, string text)
+        {
+            logger?.Write(LogCategory.Error, LogPriority.Highest, text);
+        }
+    }
+}

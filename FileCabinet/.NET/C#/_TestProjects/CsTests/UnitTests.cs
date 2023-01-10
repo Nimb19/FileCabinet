@@ -27,11 +27,13 @@ public class UnitTests
     [TestMethod]
     public void test()
     {
-        var text = File.ReadAllText("WEMon.config.json");
-        var des = JsonConvert.DeserializeObject<WEMonConfig>(text);
-        var ser = JsonConvert.SerializeObject(des);
+        var messages = new List<string>();
+        var messages2 = new List<int>();
+        var result = messages.Max(x => x.Length);
+        var result2 = messages2.Max(x => x);
 
-        Trace.WriteLine(ser);
+        Trace.WriteLine(result);
+        Trace.WriteLine(result2);
     }
 
     [TestMethod]
