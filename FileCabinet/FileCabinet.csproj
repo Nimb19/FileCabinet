@@ -8,6 +8,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Include=".NET\C#\Utils\PSAndSshCommandExecutor.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Content Include=".NET\C#\CmdUtils\ProcessStarter.txt" />
 		<Content Include=".NET\C#\System.Collections\IQuereable.txt" />
 		<Content Include=".NET\C#\Стороннее полезное\Hangfire.txt" />
