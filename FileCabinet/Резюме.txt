@@ -1,5 +1,9 @@
 ѕеред собесом пройтись глазами: https://learn.microsoft.com/ru-ru/dotnet/api/system.span-1?view=net-6.0
 https://habr.com/ru/post/178763/
+ акие принципе SOLID нарушает Singleton? https://www.youtube.com/watch?v=M32SEu0hY7w 2:14:00
+MVC/MVP/MVVM отличие, что это https://www.youtube.com/watch?v=M32SEu0hY7w 2:18:00
+GoF: Strategy, Facade, Proxy, Iterator, Observable/Observer, Decorator https://www.youtube.com/watch?v=M32SEu0hY7w 2:21:00
+https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern 
 
 
 Ќа прошлой работе много занималс€ с/много работал дома с: 

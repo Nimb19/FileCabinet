@@ -1,43 +1,30 @@
-Automapper
 Jmt, идентификация, аутентификация, авторизация
 Producer/Consumer pattern
-Какие принципе SOLID нарушает Singleton? https://www.youtube.com/watch?v=M32SEu0hY7w 2:14:00
-MVC/MVP/MVVM отличие, что это https://www.youtube.com/watch?v=M32SEu0hY7w 2:18:00
-GoF: Strategy, Facade, Proxy, Iterator, Observable/Observer, Decorator https://www.youtube.com/watch?v=M32SEu0hY7w 2:21:00
-https://stackoverflow.com/questions/18618779/differences-between-proxy-and-decorator-pattern 
-
 Ключ идемпотентности https://www.google.com/search?q=%D0%BA%D0%BB%D1%8E%D1%87+%D0%B8%D0%B4%D0%B5%D0%BC%D0%BF%D0%BE%D1%82%D0%B5%D0%BD%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8+%D1%8D%D1%82%D0%BE&rlz=1C1GCEA_enRU1020RU1020&oq=%D0%BA%D0%BB%D1%8E%D1%87+%D0%B8%D0%B4%D0%B5%D0%BC%D0%BF%D0%BE%D1%82%D0%B5%D0%BD%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8+%D1%8D%D1%82%D0%BE&aqs=chrome..69i57.9647j0j7&sourceid=chrome&ie=UTF-8
 
 CI/CD https://www.youtube.com/watch?v=M32SEu0hY7w 2:40:30
-
-Виды тестов, чем отличаются
 
 Git Flow/Trunc Based
 
 DDD, TDD, лямбда-архитектура, гексагональная архитектура, C4 нотация https://www.youtube.com/watch?v=M32SEu0hY7w 2:25:00
 Микросервисы: Saga, 2Phase, Saga prons and cons, оркестрация и хореография, Sync api vs Async api, Actor based concurrency, Blue/green deployment https://www.youtube.com/watch?v=M32SEu0hY7w 2:27:40
 
-! паттерн итератор. Почему итераторы разделены на 2 интерфейса? https://www.youtube.com/watch?v=mSVI828cdIw&list=PLEtg-LdqEKXaN_NkvJkxD460DE-zy7dfg&index=6
-  GetEnumerator, Yield
-! Баднда 4
-
 kub https://andrewlock.net/series/deploying-asp-net-core-applications-to-kubernetes/
 
-Архитектурные простые паттерны // https://refactoring.guru/ru/design-patterns/decorator
 Архитектурные паттерны о том как строятся системы плагинов
-Сеть, сокеты, обмен данными, клиент/сервер сделай что нибудь с плотными паттернами
+
+Сеть, сокеты, обмен данными, клиент/сервер сделай что нибудь строя паттернами
 Подключение графаны/кибаны к своим проектам желательно в докере
-Cryptography - мельком
+Cryptography
 
 Алгоритмика
 Структуры
 SQL запросы виды
 
-Просмотр дампов
 github.com мануал по ботам, сборкам, что там ещё есть очень много всего
 Профилирование
 
-Читать блоги: 
+Блог микрософтов: 
 	https://devblogs.microsoft.com/
 
 Параллельно доизучая: 

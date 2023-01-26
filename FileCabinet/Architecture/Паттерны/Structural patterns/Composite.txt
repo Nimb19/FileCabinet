@@ -1,0 +1,90 @@
+Компоновщик
+https://metanit.com/sharp/patterns/4.4.php
+
+Composite - объединяет группы объектов для того что бы работать с ними как с единым целым. Позволяет создавать древовидную структуру элементов. 
+Делаем класс MyClassComposit : MyClassInterface
+Который содержит коллекцию объектов своего интерфейса и реализует методы, которые будут через foreach передавать всю инфу.
+Хотим добавить новый тип компонента? Наследуем от Composite.
+
+Например
+1. Пункты меню, понятное дело
+2. Directory в ОС - это композит файлов и других директорий, например. Сама файловая система это логически такой же композит.
+3. Не обязательно он делается для древовидной структуры, но обязательно позволяет это в теории - MultiLogger : ILogger.
+
+Нужен когда: 
+1. Объекты должны использоваться в древо-видной структуре
+2. Когда хотим единообразно управлять как целыми объектами, так и их составными частями. 
+
+
+```
+class Client
+{
+    public void Main()
+    {
+        Component root = new Composite("Root");
+        Component leaf = new Leaf("Leaf");
+        Composite subtree = new Composite("Subtree");
+        root.Add(leaf);
+        root.Add(subtree);
+        root.Display();
+    }
+}
+abstract class Component
+{
+    protected string name;
+ 
+    public Component(string name)
+    {
+        this.name = name;
+    }
+ 
+    public abstract void Display();
+    public abstract void Add(Component c); 
+    public abstract void Remove(Component c);
+}
+class Composite : Component
+{
+    List<Component> children = new List<Component>();
+ 
+    public Composite(string name)
+        : base(name)
+    {}
+ 
+    public override void Add(Component component)
+    {
+        children.Add(component);
+    }
+ 
+    public override void Remove(Component component)
+    {
+        children.Remove(component);
+    }
+ 
+    public override void Display()
+    {
+        Console.WriteLine(name);
+ 
+        foreach (Component component in children)
+        {
+            component.Display();
+        }
+    }
+}
+class Leaf : Component
+{
+    public Leaf(string name)
+        : base(name)
+    {}
+ 
+    public override void Display()
+    {
+        Console.WriteLine(name);
+    }
+ 
+    public override void Add(Component component)
+    { }
+ 
+    public override void Remove(Component component)
+    { }
+}
+```

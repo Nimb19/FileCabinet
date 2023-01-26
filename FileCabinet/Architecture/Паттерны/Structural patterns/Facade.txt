@@ -1,0 +1,55 @@
+Фасад
+https://metanit.com/sharp/patterns/4.3.php
+
+Facade - для сокрытия сложности какой-либо системы, для предоставления какого то упрощённого интерфейса.
+Например - позволит предоставить одну точку взаимодействия с системой, ради удобства.
++ меньше зависимостей к реализации работы системы.
+
+# Отличие от Медиатора - Фасад связывает сложные объекты под единый интерфейс для упрощённого взаимодействия (как ILogger) 
+Фасад знает меньше чем Медиатор, он про то как построить систему и сделать для неё удобный интерфейс. 
+Как интерфейс у микроволновки - его нельзя назвать Медиатором, это фасад для использования не содержащий бизнес-логики, это часть структуры.
+
+Медиатор - отвечает за поведение объектов между собой, для достижения такими объектами каких-то бизнес-целей.
+
+
+```
+public class Facade
+{
+    SubsystemA subsystemA;
+    SubsystemB subsystemB;
+    SubsystemC subsystemC;
+ 
+    public Facade(SubsystemA sa, SubsystemB sb, SubsystemC sc)
+    {
+        subsystemA = sa;
+        subsystemB = sb;
+        subsystemC = sc;
+    }
+    public void Operation1()
+    {
+        subsystemA.A1();
+        subsystemB.B1();
+        subsystemC.C1();
+    }
+    public void Operation2()
+    {
+        subsystemB.B1();
+        subsystemC.C1();
+    }
+}
+
+class Client
+{
+    public void Main()
+    {
+        Facade facade = new Facade(new SubsystemA(), new SubsystemB(), new SubsystemC());
+        facade.Operation1();
+        facade.Operation2();
+    }
+}
+```
+
+Участники:
+* Классы SubsystemA, SubsystemB, SubsystemC и т.д. являются компонентами сложной подсистемы, с которыми должен взаимодействовать клиент
+* Client взаимодействует с компонентами подсистемы
+* Facade - непосредственно фасад, который предоставляет интерфейс клиенту для работы с компонентами
