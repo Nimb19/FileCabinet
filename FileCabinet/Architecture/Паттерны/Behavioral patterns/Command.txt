@@ -1,0 +1,31 @@
+﻿Паттерн "Команда"
+https://metanit.com/sharp/patterns/3.3.php
+https://www.dofactory.com/net/command-design-pattern
+
+Command - позволит вынести запрос к объекту в отдельную команду. Можно вынести команды на извне их подавать, а можно внутри хранить их стек. 
+Так мы помещаем в другой поток их стек и ничего не ожидаем. Когда придёт время - она выполнится.
+
+То есть у объекта какого то действия над другим объектом/объектами мы можем добавить 3 метода для того что бы принимать абстрактные команды, тем самым расширяя возможности.
+Теперь каждый человек может создать собственную кнопку у пульта.
+
+
+# Frequency of use: medium-high, но нигде его не видел
+
+
+```
+// Create user and let her compute
+User user = new User();
+
+// User presses calculator buttons
+user.Compute('+', 100);
+user.Compute('-', 50);
+user.Compute('*', 10);
+user.Compute('/', 2);
+
+// Undo 4 commands
+user.Undo(4);
+
+// Redo 3 commands
+user.Redo(3);
+
+```

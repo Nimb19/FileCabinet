@@ -1,0 +1,31 @@
+﻿Паттерн "Interpreter"
+https://metanit.com/sharp/patterns/3.8.php
+
+Interpreter - позволяет описывать деревья выражений для вычисления результата с помощью них из какого нибудь контекста.
+После построения вызываем головное выражение и вызываем Interpreter(Context) передавая контекст
+
+# Очень редко используется, написано 'используется только для простейших операций', в более сложных случаях нужно выбирать другую проектировку приложения.
+
+```
+var context = new Context();  // Хранит переменные в Dictionary
+// определяем набор переменных
+int x = 5;
+int y = 8;
+int z = 2;
+ 
+// добавляем переменные в контекст
+context.SetVariable("x", x);
+context.SetVariable("y", y);
+context.SetVariable("z", z);
+
+// создаем объект для вычисления выражения x + y - z
+IExpression expression = new SubtractExpression(
+    new AddExpression(
+        new NumberExpression("x"), new NumberExpression("y")
+    ),
+    new NumberExpression("z")
+);
+
+int result = expression.Interpret(context);
+Console.WriteLine("результат: {0}", result);
+```
