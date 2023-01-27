@@ -1,0 +1,8 @@
+﻿Паттерн "Состояние"
+https://metanit.com/sharp/patterns/3.6.php
+https://www.dofactory.com/net/state-design-pattern
+
+Frequency of use: medium
+# Сам уже несколько раз использовал сам того не зная, очень полезный и лёгкий паттерн
+
+State - 
