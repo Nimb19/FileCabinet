@@ -9,21 +9,6 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
-    public class WEMonConfig
-    {
-        public const string Section = nameof(WEMonConfig);
-
-        public CertificatesPaths CertificatesPaths { get; set; }
-    }
-
-    public class CertificatesPaths
-    {
-        public TimeSpan? CheckPeriod { get; set; }
-
-        public ICollection<string> Windows { get; set; }
-        public ICollection<string> Linux { get; set; }
-    }
-
     [TestMethod]
     public void test()
     {
