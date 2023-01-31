@@ -1,0 +1,92 @@
+﻿Хранитель
+https://metanit.com/sharp/patterns/3.10.php
+https://www.dofactory.com/net/memento-design-pattern
+
+Frequency of use: low
+
+Memento - нужен что бы вынести состояние объекта от самого объекта, мы храним состояние что бы сохранять его отдельно, 
+например сохраняем характеристики персонажа.
+
+Сохранять состояние бывает очень полезно, так как в отдельной DTO мы можем не только хранить всё то же что и в Originator, 
+но и добавлять логики, по типу когда было сделано сохранение. + в классе ответственном за сохранение без DTo можно было бы управлять объектом, а это нарушение инкапсуляции.
+
+То есть: есть объект игрок, мы из него копируем для удобства нужные для сохранения поля в HeroMemnto.
+Далее если что у игрока найдётся метод сохранить текущее HeroMemento, так инициализируем объект хранения.
+И записываем в смотрителя со хранителями в GameHistory (Caretaker)
+Далее можем восстановить героя, рядом с методом сохранения Memento нашлось бы и восстановление:
+
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        Hero hero = new Hero();
+        hero.Shoot(); // делаем выстрел, осталось 9 патронов
+        GameHistory game = new GameHistory();
+             
+        game.History.Push(hero.SaveState()); // сохраняем игру
+ 
+        hero.Shoot(); //делаем выстрел, осталось 8 патронов
+ 
+        hero.RestoreState(game.History.Pop());
+ 
+        hero.Shoot(); //делаем выстрел, осталось 8 патронов
+ 
+        Console.Read();
+    }
+}
+ 
+// Originator
+class Hero
+{
+    private int patrons=10; // кол-во патронов
+    private int lives=5; // кол-во жизней
+ 
+    public void Shoot()
+    {
+        if (patrons > 0)
+        {
+            patrons--;
+            Console.WriteLine("Производим выстрел. Осталось {0} патронов", patrons);
+        }
+        else
+            Console.WriteLine("Патронов больше нет");
+    }
+    // сохранение состояния
+    public HeroMemento SaveState()
+    {
+        Console.WriteLine("Сохранение игры. Параметры: {0} патронов, {1} жизней", patrons, lives);
+        return new HeroMemento(patrons, lives);
+    }
+ 
+    // восстановление состояния
+    public void RestoreState(HeroMemento memento)
+    {
+        this.patrons=memento.Patrons;
+        this.lives = memento.Lives;
+        Console.WriteLine("Восстановление игры. Параметры: {0} патронов, {1} жизней", patrons, lives);
+    }
+}
+// Memento
+class HeroMemento
+{
+    public int Patrons { get; private set; }
+    public int Lives { get; private set; }
+ 
+    public HeroMemento(int patrons, int lives)
+    {
+        this.Patrons = patrons;
+        this.Lives = lives;
+    }
+} 
+   
+// Caretaker
+class GameHistory
+{
+    public Stack<HeroMemento> History { get; private set; }
+    public GameHistory()
+    {
+        History = new Stack<HeroMemento>();
+    }
+}
+```

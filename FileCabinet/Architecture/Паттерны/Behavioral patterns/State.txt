@@ -3,6 +3,86 @@ https://metanit.com/sharp/patterns/3.6.php
 https://www.dofactory.com/net/state-design-pattern
 
 Frequency of use: medium
-# Сам уже несколько раз использовал сам того не зная, очень полезный и лёгкий паттерн
 
-State - 
+State - позволяет объекту менять его состояние.
+Для этого в Context (объект, у которого меняется поведение от состояния) не крутим if/else для нужного поведения в зависимости от состояния,
+а создаём классы StateA, StateB, StateC и т.д.
+Передаём им контекст в методе условно Handle(Context), реализуем у них обработку нужного поведения в зависимости от текущего состояния 
+и меняем состояние на новое, если это нужно.
+
+
+```
+enum Mark
+{
+    Bad,Good
+}
+class Dean/*Декан*/
+{
+    public EmotionState State { get; set; }
+    public Dean() : this(new NeutralState()){}
+    public Dean(EmotionState state)
+        => State = state;
+    public void WhatDoWithStudent(Mark mark)
+        => State.ChangeState(this, mark);
+}
+
+abstract class EmotionState
+{
+    public abstract void ChangeState(Dean dean, Mark mark);
+}
+class AngerState : EmotionState
+{
+    public AngerState()
+        => Console.WriteLine("Думаю выгнать студента");
+    public override void ChangeState(Dean dean, Mark mark)
+        => dean.State = mark switch
+        {
+            Mark.Good => new NeutralState(),
+            Mark.Bad => new AngerState(),
+            _ => new NeutralState()
+        };
+}
+class NeutralState : EmotionState
+{
+    public NeutralState()
+        => Console.WriteLine("Что будет то будет");
+    public override void ChangeState(Dean dean, Mark mark)
+        => dean.State = mark switch
+        {
+            Mark.Good => new JoyState(),
+            Mark.Bad => new AngerState(),
+            _ => new NeutralState()
+        };
+}
+class JoyState : EmotionState
+{
+    public JoyState()
+        => Console.WriteLine("Думаю студента надо перевести на бюджет");
+    public override void ChangeState(Dean dean, Mark mark)
+        => dean.State = mark switch
+        {
+            Mark.Good => new AngerState(),
+            Mark.Bad => new NeutralState(),
+            _ => new NeutralState()
+        };
+}
+Использование:
+
+Dean dean = new();
+dean.WhatDoWithStudent(Mark.Bad);
+dean.WhatDoWithStudent(Mark.Bad);
+dean.WhatDoWithStudent(Mark.Good);
+dean.WhatDoWithStudent(Mark.Good);
+dean.WhatDoWithStudent(Mark.Bad);
+dean.WhatDoWithStudent(Mark.Bad);
+
+На консоли будет:
+
+Что будет то будет
+Думаю выгнать студента
+Думаю выгнать студента
+Что будет то будет
+Думаю студента надо перевести на бюджет
+Что будет то будет
+Думаю выгнать студента
+```
