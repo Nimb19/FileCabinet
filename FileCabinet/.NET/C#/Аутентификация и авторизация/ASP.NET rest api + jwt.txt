@@ -1,0 +1,5 @@
+﻿https://metanit.com/sharp/aspnet6/13.2.php
+
+Как внедрить JWT-авторизацию:
+1) Добавляем Nuget-пакет Microsoft.AspNetCore.Authentication.JwtBearer
+2) 
