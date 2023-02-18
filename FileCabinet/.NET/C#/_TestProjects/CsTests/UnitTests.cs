@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Globalization;
@@ -9,8 +10,31 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
+    //[TestMethod]
+    //public void testsdgdfyhsdgs()
+    //{
+    //    // [[1,4,5],[1,3,4],[2,6]]
+    //    var testNodes = new List<ListNode> { new(1, new(4, new(5))), new(1, new(3, new(4))), new(2, new(6)) };
+    //    // [1,1,2,3,4,4,5,6]
+    //    var expectedResult = new ListNode(1, new(1, new(2, new(3, new(4, new(4, new(5, new(6))))))));
+
+    //    var sln = new Solution();
+    //    var result = sln.MergeKLists(testNodes.ToArray());
+
+    //    var resultList = new List<int>();
+    //    while (expectedResult != null)
+    //    {
+    //        Assert.IsTrue(expectedResult.val == result.val, 
+    //            $"Неверноей значение при сравнении (expectedResult != result): {expectedResult.val} != {result.val}.{Environment.NewLine}" +
+    //            $"Итого было сравнено: [{string.Join(", ", resultList)}]");
+    //        resultList.Add(expectedResult.val);
+    //        expectedResult = expectedResult.next;
+    //        result = result.next;
+    //    }
+    //}
+
     [TestMethod]
-    public void test()
+    public void testsdgsdgs()
     {
         var messages = new List<string>();
         var messages2 = new List<int>();
@@ -93,7 +117,7 @@ public class UnitTests
         var t = new Task(() =>
         {
             bool toggle = false;
-            while (complete == 0) 
+            while (complete == 0)
                 toggle = !toggle;
             Trace.WriteLine("Success");
         });
@@ -117,7 +141,7 @@ public class UnitTests
         var test = testen.one | testen.two | testen.fo;
         switch (test)
         {
-            case testen.one: 
+            case testen.one:
                 Trace.WriteLine("testen.one");
                 break;
             case testen.two:
@@ -129,7 +153,7 @@ public class UnitTests
             case testen.fo:
                 Trace.WriteLine("testen.fo");
                 break;
-            default: 
+            default:
                 Trace.WriteLine("def");
                 break;
         }
@@ -200,7 +224,7 @@ public class UnitTests
         // https://www.youtube.com/watch?v=M32SEu0hY7w 56 min primerno
         // только на этапе компиляции одни и те же строки будут интернированы
         // (или одни и те же, но полученные в текущей строке (pstr + "o" не считается за формирование в одной сроке, считается "hell" + "o"))
-        
+
         // Интернирована ли строка можно проверить String.IsIntern, можно так же самому добавить если надо, но тогда они останутся до завершения приложения
         // (object)"Hi" == (object)"Hi" всегда истинно, спасибо интернированию.
         // Попробуйте проверить этот код в окне интерпретации, и результат будет отрицательным, так как отладчик не интернирует ваши строки.
