@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text;
+using System.Net.NetworkInformation;
 
 namespace CsTests;
 
@@ -35,6 +36,23 @@ public class UnitTests
 
     [TestMethod]
     public void testsdgsdgs()
+    {
+        var ipProps = IPGlobalProperties.GetIPGlobalProperties();
+        var tcpConnections = ipProps.GetActiveTcpConnections();
+
+        Trace.WriteLine($"Всего {tcpConnections.Length} активных TCP-подключений");
+        Trace.WriteLine("");
+        foreach (var connection in tcpConnections)
+        {
+            Trace.WriteLine("=============================================");
+            Trace.WriteLine($"Локальный адрес: {connection.LocalEndPoint.Address}:{connection.LocalEndPoint.Port}");
+            Trace.WriteLine($"Адрес удаленного хоста: {connection.RemoteEndPoint.Address}:{connection.RemoteEndPoint.Port}");
+            Trace.WriteLine($"Состояние подключения: {connection.State}");
+        }
+    }
+
+    [TestMethod]
+    public void testфыаа()
     {
         var messages = new List<string>();
         var messages2 = new List<int>();
