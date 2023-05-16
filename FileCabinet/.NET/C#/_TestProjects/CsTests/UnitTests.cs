@@ -35,6 +35,37 @@ public class UnitTests
     //}
 
     [TestMethod]
+    public void testsdgsd123123sasfasf()
+    {
+        var timeout = TimeSpan.FromMinutes(1.2);
+        var timeoutEndTime = DateTimeOffset.UtcNow.Add(timeout);
+        Trace.WriteLine($"[SyncControl-2] srvTaskImplementation.IsStarted = false. Waiting for initialization for {timeout.TotalMinutes:0.00} min");
+    }
+
+    public delegate void testdelegate();
+
+    public class test1123
+    {
+        public event testdelegate testdelegate;
+    }
+
+    [TestMethod]
+    public void testsdgsd123123s()
+    {
+        var test = new test1123();
+        test.testdelegate -= () => { };
+        test.testdelegate -= testhandler;
+        test.testdelegate += testhandler;
+        test.testdelegate -= testhandler;
+        test.testdelegate -= testhandler;
+    }
+
+    public void testhandler()
+    {
+        Trace.WriteLine($"testhandler invoked");
+    }
+
+    [TestMethod]
     public void testsdgsdgs()
     {
         var ipProps = IPGlobalProperties.GetIPGlobalProperties();
