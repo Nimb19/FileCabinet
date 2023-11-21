@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsTests", "FileCabinet\.NET
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0887BACA-AF52-4BCE-90B8-243BD92A8855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPITests", "FileCabinet\.NET\C#\_TestProjects\WebAPITests\WebAPITests.csproj", "{B466D9C0-08A8-4544-8F06-D37A0139E4C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPITests", "FileCabinet\.NET\C#\_TestProjects\WebAPITests\WebAPITests.csproj", "{B466D9C0-08A8-4544-8F06-D37A0139E4C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsConsole", "CsConsole\CsConsole.csproj", "{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLib", "FileCabinet\.NET\C#\_TestProjects\CsLib\CsLib.csproj", "{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{B466D9C0-08A8-4544-8F06-D37A0139E4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B466D9C0-08A8-4544-8F06-D37A0139E4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B466D9C0-08A8-4544-8F06-D37A0139E4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{280BD3D3-7D22-44BE-902B-FAAAD0F1AA52} = {0887BACA-AF52-4BCE-90B8-243BD92A8855}
 		{B466D9C0-08A8-4544-8F06-D37A0139E4C3} = {0887BACA-AF52-4BCE-90B8-243BD92A8855}
+		{ADA54AB1-7CFA-4614-85CA-EBB740D9C2D0} = {0887BACA-AF52-4BCE-90B8-243BD92A8855}
+		{FBE4A4A9-52BC-416C-8CD2-16BC412C96E0} = {0887BACA-AF52-4BCE-90B8-243BD92A8855}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D56A73EF-5000-4AB2-A1A4-F21808DC7AF7}

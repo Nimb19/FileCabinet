@@ -11,6 +11,47 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
+    [TestMethod]
+    public async Task testsdgsd123123sas()
+    {
+        using var rwl = new ReaderWriterLockSlim();
+        var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        var task = Task.Run(() =>
+        {
+            Thread.Sleep(1000);
+            rwl.EnterReadLock();
+            WriteLineWithTime("Взял Enter на 2 сек");
+
+            tcs.SetResult(true);
+            WriteLineWithTime("Ожидание начато");
+            Thread.Sleep(2000);
+
+            WriteLineWithTime("Ожидание окончено");
+            rwl.ExitReadLock();
+            WriteLineWithTime("Отпустил лок ожидания");
+        });
+
+        WriteLineWithTime("Ожидаю, что Read лок будет взят");
+        await tcs.Task;
+        WriteLineWithTime("Закончил ждать");
+        
+        rwl.EnterWriteLock();
+        WriteLineWithTime("Взял Write лок, жду 1 сек");
+
+        Thread.Sleep(3000);
+
+        WriteLineWithTime("Пытаюсь покинуть Write лок");
+        rwl.ExitWriteLock();
+        WriteLineWithTime("Покинул Write лок");
+
+    }
+
+    private void WriteLineWithTime(string text)
+    {
+        Console.WriteLine($"[{DateTime.Now.ToString("HH:mm ss.fff")}] {text}");
+    }
+
     //[TestMethod]
     //public void testsdgdfyhsdgs()
     //{
@@ -35,11 +76,87 @@ public class UnitTests
     //}
 
     [TestMethod]
-    public void testsdgsd123123sasfasf()
+    public async Task testsdgsd123123sasfasf()
     {
-        var timeout = TimeSpan.FromMinutes(1.2);
-        var timeoutEndTime = DateTimeOffset.UtcNow.Add(timeout);
-        Trace.WriteLine($"[SyncControl-2] srvTaskImplementation.IsStarted = false. Waiting for initialization for {timeout.TotalMinutes:0.00} min");
+        Trace.WriteLine($"SyncContext: {SynchronizationContext.Current?.ToString() ?? "null"}");
+        Trace.WriteLine($"TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        //ThreadPool.SetMinThreads(10, 10);
+        //ThreadPool.SetMaxThreads(30, 30);
+        //Trace.WriteLine($"ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        //var cts = new CancellationTokenSource(60000);
+        //var cancToken = cts.Token;
+
+        //var tasks = new List<Task>();
+        //for (int i = 0; i < 50; i++)
+        //{
+            //cancToken.ThrowIfCancellationRequested();
+
+            //var iInternal = i;
+            //var task = Task.Factory.StartNew(() =>
+            //{
+                //Trace.WriteLine($"{DateTime.Now.ToString("hh:mm ss.fffff")} [{iInternal:000}] Start");
+
+                //Task.Delay(30000).Wait(cancToken);
+                //if (cancToken.IsCancellationRequested)
+                //{
+                    //Trace.WriteLine($"{DateTime.Now.ToString("hh:mm ss.fffff")} [{iInternal:000}] Canceled");
+                    //return;
+                //}
+
+                //Trace.WriteLine($"{DateTime.Now.ToString("hh:mm ss.fffff")} [{iInternal:000}]  Complete");
+            //}, cancToken);
+
+            //Task.Delay(50).Wait(cancToken);
+
+            //tasks.Add(task);
+            //Trace.WriteLine($"ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+        //}
+
+        //Task.WaitAll(tasks.ToArray());
+
+        Trace.WriteLine($"o 0 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"o 0 ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        await StartAsyncMethod();
+
+        //Task.Delay(1500).Wait();
+
+        Trace.WriteLine($"o 1 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"o 1 ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        var task = StartAsyncMethod().ConfigureAwait(false);
+
+        //await task;
+
+        Trace.WriteLine($"o 2 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"o 2 ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        Task.Delay(500).Wait();
+
+        Trace.WriteLine($"o 3 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"o 3 ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+
+        await task;
+
+        Trace.WriteLine($"o 4 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"o 4 ThreadPool.ThreadCount: {ThreadPool.ThreadCount}");
+    }
+
+    public async Task StartAsyncMethod()
+    {
+        Trace.WriteLine($"s 0 TID: {Environment.CurrentManagedThreadId}");
+
+        await Task.Delay(TimeSpan.FromSeconds(1));
+        Trace.WriteLine($"s 1 TID: {Environment.CurrentManagedThreadId}");
+        await Task.Delay(TimeSpan.FromSeconds(1.1));
+        Trace.WriteLine($"s 2 TID: {Environment.CurrentManagedThreadId}");
+        await Task.Delay(TimeSpan.FromSeconds(1.2));
+
+        Trace.WriteLine($"s 3 TID: {Environment.CurrentManagedThreadId}");
+        Trace.WriteLine($"s complete");
     }
 
     public delegate void testdelegate();
