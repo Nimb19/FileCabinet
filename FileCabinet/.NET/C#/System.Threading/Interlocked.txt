@@ -17,7 +17,7 @@ Interlocked не вызывает исключений если правильно с ним работать.
 	Add - добавление
 	Or - выполняет побитовую операцию ИЛИ
 	And - выполняет побитовую операцию И
-	* struct CompareExchange(ref struct location, struct value, struct comparand) - если первое и третье значения равны, то заменяет первое на второе
+	* struct CompareExchange(ref struct location, struct value, struct comparand) - если первое и третье значения равны, то заменяет первое на второе (и возвращает старое значение, не важно изменилось оно или нет)
 	* struct Exchange(ref struct, struct) - обмен значениями, возвращает исходное значение первой переменной. 
 
 В основном используется метод Exchange(ref int, int)

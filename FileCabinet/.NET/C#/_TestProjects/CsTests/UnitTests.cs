@@ -11,6 +11,18 @@ namespace CsTests;
 [TestClass]
 public class UnitTests
 {
+    private int _test;
+
+    [TestMethod]
+    public async Task testsdgsd123123sas123()
+    {
+        Console.WriteLine(_test);
+        Console.WriteLine(Interlocked.CompareExchange(ref _test, 1, 0));
+        Console.WriteLine(_test);
+        Console.WriteLine(Interlocked.CompareExchange(ref _test, 0, 1));
+        Console.WriteLine(_test);
+    }
+
     [TestMethod]
     public async Task testsdgsd123123sas()
     {
